@@ -1,0 +1,1014 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>AI for Disaster Management & Relief</title>
+
+    <meta name="description" content="Una presentación sobre el uso de IA para la gestión de desastres en la región amazónica, para la AI Climate Academy.">
+    <meta name="author" content="Edier Aristizábal nd the framework Reveals by Hakim El Hattab">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/serif.min.css" id="theme">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+
+	<style>
+
+        :root {
+            --r-main-font-size: 28px;
+            --r-heading1-size: 2.5em;
+            --r-heading2-size: 1.6em;
+            --r-heading3-size: 1.3em;
+            --r-heading4-size: 1.0em;
+            --r-link-color: #2a76dd;
+            --r-main-color: #333;
+            --r-heading-color: #000000;
+            --r-background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .reveal {
+            font-family: 'Lato', sans-serif;
+        }
+
+		.reveal h3 {
+			font-size: 30px;
+			color: black;
+			font-weight: bold;
+			text-align: left;
+            color: var(--r-heading-color);
+		}
+        		
+        .reveal .slide-number {
+            font-size: 14px;
+            background-color: rgba(0, 0, 0, 0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+		
+        .reveal figcaption {
+            font-size: 0.5em;
+            color: gray;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: -15px;
+        }
+		
+		.primera #marca-agua{
+			display:none;
+			}
+		
+		.primera #lecture{
+			display:none;
+			}
+		
+		.reveal section p {
+			font-size: 0.7em;
+			}
+		
+		.reveal section li {
+			font-size: 0.6em;
+			}
+
+        .box { 
+            border:1px solid #e5e5e9; 
+            border-radius:14px; 
+            padding:12px 
+            }
+        
+        .ok { 
+            color:#10893e; 
+            }
+        
+        .warn { 
+            color:#b1440e; 
+        }
+
+		.reveal .move {
+			display: block;
+			margin-left: 200px;
+			margin-right: auto;
+			}
+
+        .reveal .twocolumn {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+            align-items: center;
+        }
+
+		.reveal #left{
+			left:-8.33%;
+			text-align: left;
+			float: left;
+			width:80%;
+			z-index:-10;
+			}
+
+		.reveal #right {
+			left:31.25%;
+			top: 75px;
+			float: right;
+			text-align: right;
+			z-index:-10;
+			width:20%;
+			}
+
+        .reveal .left-align {
+            text-align: left;
+        }
+
+        .reveal pre code {
+            border-radius: 10px;
+            font-size: 0.6em;
+            padding: 15px;
+        }
+
+        .mind-map-slide {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .mind-map-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        .mind-map-center svg {
+            width: 200px;
+            height: 200px;
+        }
+
+        .mind-map-node {
+            position: absolute;
+            width: 200px;
+            text-align: center;
+        }
+
+        .mind-map-node .icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid #6ca0dc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px auto;
+            background-color: white;
+        }
+
+        .mind-map-node .icon svg {
+            width: 32px;
+            height: 32px;
+            fill: #2a76dd;
+        }
+
+        .mind-map-node .title {
+            font-weight: bold;
+            font-size: 0.7em;
+        }
+
+        .mind-map-node .text {
+            font-size: 0.6em;
+        }
+        
+        .analyst-slide .twocolumn-illustration {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            align-items: center;
+            gap: 40px;
+            height: 100%;
+        }
+
+        .analyst-slide .text-container {
+            text-align: left;
+        }
+
+        .analyst-slide .text-container h2 {
+            color: #004d40; /* Teal oscuro */
+        }
+
+        .analyst-slide .text-container p {
+            font-size: 0.8em;
+            color: #00695c;
+            border-left: 3px solid #ffab40; /* Naranja/ámbar */
+            padding-left: 15px;
+            margin-bottom: 25px;
+        }
+
+        .analyst-slide .illustration-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .analyst-slide .illustration-container svg {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+        }
+        
+        .infographic-list-slide .twocolumn-infographic {
+             display: grid;
+             grid-template-columns: 1fr 1.5fr;
+             align-items: center;
+             gap: 50px;
+             height: 100%;
+             padding: 0 50px;
+        }
+
+        .infographic-list-slide .title-container {
+            text-align: left;
+        }
+
+        .infographic-list-slide .title-container h2 {
+            font-size: 2em;
+        }
+
+        .infographic-list-slide .title-container p {
+            font-size: 0.8em;
+            color: #555;
+        }
+
+        .infographic-list-slide .title-container hr {
+            border: 0;
+            height: 4px;
+            width: 60px;
+            background-color: var(--r-link-color);
+            margin: 20px 0;
+        }
+
+        .infographic-list-slide .info-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .infographic-list-slide .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .infographic-list-slide .info-icon {
+            margin-right: 20px;
+        }
+
+        .infographic-list-slide .info-icon svg {
+            width: 50px;
+            height: 50px;
+            fill: #78909c;
+        }
+
+        .infographic-list-slide .info-content {
+            display: flex;
+            align-items: center;
+            background-color: #f5f5f5;
+            border-radius: 50px;
+            padding-right: 25px;
+            width: 100%;
+        }
+
+        .infographic-list-slide .info-number {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 40px;
+            margin-right: 20px;
+        }
+
+        .infographic-list-slide .info-item:nth-child(1) .info-number { background-color: #00bfff; }
+        .infographic-list-slide .info-item:nth-child(2) .info-number { background-color: #005f87; }
+        .infographic-list-slide .info-item:nth-child(3) .info-number { background-color: #ff8c00; }
+        .infographic-list-slide .info-text h4 {
+            margin: 0 0 5px 0;
+            font-size: 0.8em;
+        }
+
+        .infographic-list-slide .info-text p {
+            margin: 0;
+            font-size: 0.6em;
+            color: #555;
+        }
+        
+        .stakeholder-slide .content-wrapper {
+            text-align: center;
+        }
+
+        .stakeholder-slide .content-wrapper h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .stakeholder-slide .content-wrapper > p {
+            font-size: 0.8em;
+            color: #555;
+            margin-bottom: 50px;
+        }
+
+        .stakeholder-slide .stakeholder-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            text-align: center;
+        }
+
+        .stakeholder-slide .stakeholder-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 200px;
+            position: relative;
+        }
+
+        .stakeholder-slide .stakeholder-text {
+            margin-bottom: 15px;
+        }
+
+        .stakeholder-slide .stakeholder-text h4 {
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .stakeholder-slide .stakeholder-text p {
+            font-size: 0.7em;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        .stakeholder-slide .stakeholder-connector {
+            width: 2px;
+            height: 30px;
+            background-color: #ccc;
+        }
+
+        .stakeholder-slide .stakeholder-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-top: 15px;
+        }
+
+        .stakeholder-slide .stakeholder-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .stakeholder-slide .stakeholder-item:nth-child(1) .stakeholder-circle { background-color: #29b6f6; } /* Light Blue */
+        .stakeholder-slide .stakeholder-item:nth-child(2) .stakeholder-circle { background-color: #66bb6a; } /* Green */
+        .stakeholder-slide .stakeholder-item:nth-child(3) .stakeholder-circle { background-color: #ab47bc; } /* Purple */
+        .stakeholder-slide .stakeholder-item:nth-child(4) .stakeholder-circle { background-color: #ef5350; } /* Red */
+
+        .impact-slide .twocolumn-impact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 40px;
+            height: 100%;
+        }
+
+        .impact-slide .twocolumn-impact .illustration-container {
+            text-align: center;
+        }
+
+        .impact-slide .twocolumn-impact .illustration-container svg {
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .impact-slide .stats-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px 20px;
+            text-align: left;
+        }
+
+        .impact-slide .stat-item h3 {
+            font-size: 2em;
+            font-weight: bold;
+            margin: 0;
+            color: #0077b6; /* A nice blue */
+        }
+
+        .impact-slide .stat-item h4 {
+            font-size: 0.8em;
+            margin: 5px 0;
+            color: #023e8a;
+        }
+
+        .impact-slide .stat-item p {
+            font-size: 0.6em;
+            margin: 0;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        .impact-slide .stat-item:nth-child(2) h3 { color: #0096c7; }
+        .impact-slide .stat-item:nth-child(3) h3 { color: #48cae4; }
+        .impact-slide .stat-item:nth-child(4) h3 { color: #90e0ef; }
+        
+        .overview-slide {
+            background-image: 
+                radial-gradient(circle at 100% 0%, transparent 20%, #e9ecef 20.5%, #e9ecef 21%, transparent 21.5%),
+                radial-gradient(circle at 100% 0%, transparent 25%, #e9ecef 25.5%, #e9ecef 26%, transparent 26.5%),
+                radial-gradient(circle at 100% 0%, transparent 30%, #e9ecef 30.5%, #e9ecef 31%, transparent 31.5%),
+                radial-gradient(circle at 100% 0%, transparent 35%, #e9ecef 35.5%, #e9ecef 36%, transparent 36.5%),
+                radial-gradient(circle at 100% 0%, transparent 40%, #e9ecef 40.5%, #e9ecef 41%, transparent 41.5%),
+                radial-gradient(circle at 100% 0%, transparent 45%, #e9ecef 45.5%, #e9ecef 46%, transparent 46.5%),
+                radial-gradient(circle at 100% 0%, transparent 50%, #e9ecef 50.5%, #e9ecef 51%, transparent 51.5%),
+                radial-gradient(circle at 100% 0%, transparent 55%, #e9ecef 55.5%, #e9ecef 56%, transparent 56.5%),
+                radial-gradient(circle at 100% 0%, transparent 60%, #e9ecef 60.5%, #e9ecef 61%, transparent 61.5%),
+                radial-gradient(circle at 100% 0%, transparent 65%, #e9ecef 65.5%, #e9ecef 66%, transparent 66.5%),
+                radial-gradient(circle at 100% 0%, transparent 70%, #e9ecef 70.5%, #e9ecef 71%, transparent 71.5%),
+                radial-gradient(circle at 100% 0%, transparent 75%, #e9ecef 75.5%, #e9ecef 76%, transparent 76.5%),
+                radial-gradient(circle at 100% 0%, transparent 80%, #e9ecef 80.5%, #e9ecef 81%, transparent 81.5%);
+            background-size: 100% 100%;
+        }
+
+        .overview-slide .overview-layout {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            padding: 0 5%;
+        }
+
+        .overview-slide .overview-text h2 {
+            font-size: 2.5em;
+            font-weight: 800;
+            color: #212529;
+            text-align: left;
+        }
+
+        .overview-slide .overview-text p {
+            font-size: 0.8em;
+            color: #495057;
+            text-align: left;
+        }
+
+        .overview-slide .arrow-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #007bff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .overview-slide .arrow-icon svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        .overview-slide .overview-image-container {
+            padding: 20px;
+        }
+
+        .overview-slide .overview-image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 100px; /* Large radius for pill shape */
+            filter: grayscale(100%);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .gemini-qa-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .gemini-qa-container input {
+            width: 60%;
+            padding: 12px;
+            font-size: 0.8em;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .gemini-qa-container button {
+            padding: 12px 20px;
+            font-size: 0.8em;
+            border-radius: 8px;
+            border: none;
+            background-color: var(--r-heading-color);
+            color: white;
+            cursor: pointer;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        .gemini-qa-container button:hover {
+            background-color: #2a76dd;
+        }
+
+        #gemini-response-container {
+            margin-top: 20px;
+            text-align: left;
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            font-size: 0.7em;
+            min-height: 100px;
+        }
+
+        .loader {
+          border: 4px solid #f3f3f3;
+          border-radius: 50%;
+          border-top: 4px solid #3498db;
+          width: 30px;
+          height: 30px;
+          animation: spin 2s linear infinite;
+          margin: 20px auto;
+          display: none; /* Oculto por defecto */
+        }
+
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+
+        #gemini-sources {
+            margin-top: 15px;
+            text-align: left;
+            font-size: 0.9em;
+        }
+
+        #gemini-sources h4 {
+            font-size: 1em;
+            margin-bottom: 5px;
+        }
+
+        #gemini-sources a {
+            color: var(--r-link-color);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        section.brainPuzzle { background:#0f172a; color:#e5e7eb; padding-top: 10px }
+            .brainPuzzle .grid { display:grid; grid-template-columns: 1.2fr .8fr; gap: 28px; align-items:center }
+            .brainPuzzle figure { margin:0 }
+            .brainPuzzle svg { width:100%; height:auto; max-height:440px; display:block }
+            .brainPuzzle .side { display:flex; flex-direction:column; gap:18px }
+            .brainPuzzle .card { background:#111827; border:1px solid #1f2937; border-radius:14px; padding:14px 16px; box-shadow:0 8px 16px rgba(0,0,0,.25) }
+            .brainPuzzle .card h3 { color:#93c5fd; margin:0 0 6px 0 }
+            .brainPuzzle .card p { margin:0; font-size:.95rem; color:#cbd5e1 }
+            .brainPuzzle .credit { color:#94a3b8 }
+
+        section.arcRail { background:#ffffff; color:#0f172a; padding-top: 10px }
+            .arcRail .grid { display:grid; grid-template-columns: 1.15fr .85fr; gap: 26px; align-items:center }
+            .arcRail .lead { color:#475569; margin:.5rem 0 1rem }
+            .arcRail .items { display:flex; flex-direction:column; gap:18px }
+            .arcRail .item h3 { margin:0 0 4px 0; color:#0f172a }
+            .arcRail .item p { margin:0; color:#475569; font-size:.95rem }
+            .arcRail .right { position:relative; height:430px }
+            .arcRail .right svg { position:absolute; right:-6px; top:-8px; height:450px; width:auto }
+            .badge { display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:999px; color:#fff; font-weight:800; font-size:.9rem; box-shadow:0 10px 20px rgba(0,0,0,.2) }
+            .green{ background:#16a34a } .purple{ background:#7c3aed } .blue{ background:#2563eb } .red{ background:#dc2626 }
+        
+        .postit-slide {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .postit-slide .title-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .postit-slide .title-container h2 {
+            font-size: 1.8em;
+        }
+
+        .postit-slide .postit-note {
+            background-color: #f7f6d5; /* Amarillo pálido */
+            padding: 15px;
+            font-family: 'Comic Sans MS', cursive, sans-serif; /* Fuente informal */
+            width: 220px;
+            height: 220px;
+            box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+            position: absolute;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .postit-slide .postit-note h4 {
+            font-size: 0.8em;
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+
+        .postit-slide .postit-note p {
+            font-size: 0.65em;
+            color: #555;
+            margin: 0;
+        }
+
+        .postit-slide .pin {
+            width: 20px;
+            height: 20px;
+            background-color: #ff4136;
+            border-radius: 50%;
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .postit-slide .note-1 { top: 15%; left: 10%; transform: rotate(-8deg); }
+        .postit-slide .note-2 { top: 20%; left: 40%; transform: rotate(5deg); }
+        .postit-slide .note-3 { top: 15%; left: 70%; transform: rotate(-6deg); }
+        .postit-slide .note-4 { top: 55%; left: 20%; transform: rotate(10deg); }
+        .postit-slide .note-5 { top: 55%; left: 60%; transform: rotate(-4deg); }
+
+
+        .diapositiva-matriz-intervencion .matriz-svg {
+            width: 95%;
+            height: auto;
+        }
+        .diapositiva-matriz-intervencion .matriz-svg .linea-eje {
+            stroke: #333;
+            stroke-width: 2;
+            stroke-dasharray: 5,5;
+        }
+        .diapositiva-matriz-intervencion .matriz-svg .titulo-principal {
+            font-size: 18px;
+            font-weight: bold;
+            fill: var(--r-heading-color);
+        }
+        .diapositiva-matriz-intervencion .matriz-svg .titulo-eje {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .diapositiva-matriz-intervencion .matriz-svg .elipse-nodo {
+            fill: #e8f5e9;
+            stroke: #a5d6a7;
+            stroke-width: 2;
+        }
+        .diapositiva-matriz-intervencion .matriz-svg .texto-nodo {
+            font-size: 12px;
+            text-anchor: middle;
+            fill: #333;
+        }
+        .diapositiva-matriz-intervencion .matriz-svg .flecha-conector {
+            stroke: #a63434;
+            stroke-width: 1.5;
+        }
+
+
+	</style>
+
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+
+			<div id="marca-agua"><img style="border:none; box-shadow:none; width:60px; position:absolute; top:0%; right:90%;"
+					src="https://i.pinimg.com/736x/e3/ab/09/e3ab09cc733895ded08917860c5908c8.jpg"  />
+				<p id="date"></p>
+			</div>
+			<div id="marca-agua"><img style="border:none; box-shadow:none; width:80px; position:absolute; top:0%; right:0%;"
+				src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Logotipo_de_la_Universidad_Nacional_de_Colombia.svg/1024px-Logotipo_de_la_Universidad_Nacional_de_Colombia.svg.png" />
+			</div>
+			<div style="font-style:italic; color:rgb(9, 9, 9); font-size:14px; position:relative; top:97%; text-align: center;">
+				AI Climate Academy - Belém 2025
+			</div>
+
+<!-- Portada -->
+			<section data-background-color="#ffffff"; data-state="primera">
+				<h1 style="font-size: 40px; color: black;">
+					AI for Disaster Management & Relief
+				</h1>
+				<br>
+				<h4 style="font-size: 25px;">
+					Edier Aristizábal
+				</h4>
+				<h5 style="font-size: 15px;">
+					Departamento de Geociencias y Medio Ambiente, Universidad Nacional, Medellín, Colombia
+				</h5>
+				<br>
+				<img src="https://i.pinimg.com/1200x/68/18/d9/6818d988fb0c45b107ba4cc9b47d3e79.jpg" height="350">
+				<p id="demo" style="position:absolute;top:100%;right:45%;color: gray;font-size: 1rem;"></p>
+				<br>
+			</section>
+
+<!-- Disaster -->
+            <section data-background-color="#ffffff">
+				<h2>Disasters</h2>
+				<img src="https://i.pinimg.com/1200x/4d/9e/ad/4d9ead40cb94c85ebf5c7798fd65bc14.jpg" width="800">
+			</section>
+			
+<!-- Disaster -->
+			<section data-background-color="#ffffff">
+				<h2>Disasters</h2>
+				<img src="https://i.pinimg.com/1200x/5b/bc/b7/5bbcb7a0ac082ab43fab8160555a426c.jpg" width="800">
+			</section>
+            
+<!-- climate-related disasters -->
+            <section class="stakeholder-slide"; data-background-color="#ffffff">
+                <div class="content-wrapper">
+                    <h2>Weather and climate-related disasters</h2>
+                    <p>Climate change is affecting the hydrological cycle and increasing the frequency and intensity of storms.</p>
+                    <div class="stakeholder-container">
+                        <div class="stakeholder-item fragment">
+                            <div class="stakeholder-text">
+                                <h4>Floods</h4>
+                                <p style="font-size: 15px;">Floods impact more people worldwide than any other disaster, and the economic, social, and environmental impacts are getting worse.</p>
+                            </div>
+                            <div class="stakeholder-connector"></div>
+                            <div class="stakeholder-circle">
+                                <img src="https://img.freepik.com/premium-vector/flood-hand-drawn-doodle-icon_574806-5137.jpg" alt="Tornado">
+                            </div>
+                        </div>
+                        <div class="stakeholder-item fragment">
+                            <div class="stakeholder-text">
+                                <h4>Hurricanes</h4>
+                                <p style="font-size: 15px;";
+                                >Climate change is increasing ocean and atmospheric temperatures and increasing the frequency, duration, and intensity of hurricanes.</p>
+                            </div>
+                            <div class="stakeholder-connector"></div>
+                                <div class="stakeholder-circle">
+                                    <img src="https://thumbs.dreamstime.com/b/powerful-hurricane-cyclone-weather-event-natural-disaster-vector-design-generative-ai-depicted-as-massive-swirling-storm-395816522.jpg" alt="Tornado">
+                                </div>
+                        </div>
+                        <div class="stakeholder-item fragment">
+                            <div class="stakeholder-text">
+                                <h4>Landslides</h4>
+                                <p style="font-size: 15px;">By altering precipitation patterns, leading to more intense rainfall events that saturate soil and increase runoff.</p>
+                            </div>
+                            <div class="stakeholder-connector"></div>
+                            <div class="stakeholder-circle">
+                                <img src="https://media.istockphoto.com/id/1211501552/vector/scene-with-mudslide-down-the-mountain.jpg?s=612x612&w=0&k=20&c=D3Tsuh7ie195eXByafNQpOsMzT4PXe3K9OV5I8-f9ek=" alt="Tornado">
+                            </div>
+                        </div>
+                        <div class="stakeholder-item fragment">
+                            <div class="stakeholder-text">
+                                <h4>Wildfires</h4>
+                                <p style="font-size: 15px;">Climate change intensifying, hotter temperatures, more intense and longer dry seasons.</p>
+                            </div>
+                            <div class="stakeholder-connector"></div>
+                            <div class="stakeholder-circle">
+                                <img src="https://previews.123rf.com/images/sumstock/sumstock1803/sumstock180300017/96600165-forest-fire-natural-disaster-concept-hand-drawn-illustration.jpg" alt="Tornado">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+<!-- multi risk -->
+            <section data-background-color="#ffffff">
+			    <h2>Multi-risk scenario</h2>
+				<img src="https://i.pinimg.com/736x/1a/43/fa/1a43fa32ee1206aaf66540515fd615b7.jpg" width="700"/>
+				<figcaption>Source: modified after Jakob (2005)</figcaption>
+			</section>
+
+ <!-- ejemplo -->
+            <section data-background-color="#ffffff">
+				<img src="https://i.pinimg.com/736x/84/e6/3c/84e63cecd2bd60b6ffb9226570f57fdc.jpg">
+			</section>
+
+<!-- risk model -->
+             <section data-background-color="#ffffff">
+				<img src="https://i.pinimg.com/736x/aa/0a/c9/aa0ac907d5400b834ba76ec3dbeda294.jpg" width="700">
+			</section>
+
+<!-- Matriz de intervenciones -->
+            <section class="diapositiva-matriz-intervencion">
+                <h2>Risk Intervention Matrix</h2>
+                <svg viewBox="0 0 1000 650" class="matriz-svg">
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#a63434"/>
+                        </marker>
+                    </defs>
+
+                    <!-- Ejes -->
+                    <line class="linea-eje" x1="500" y1="80" x2="500" y2="620"/>
+                    <line class="linea-eje" x1="80" y1="350" x2="920" y2="350"/>
+
+                    <!-- Flechas -->
+                    <g marker-end="url(#arrowhead)">
+                        <line class="flecha-conector" x1="250" y1="160" x2="295" y2="210"/> <!-- I - HZ -->
+                        <path class="flecha-conector" d="M 310,260 Q 480,200 510,145" fill="none"/> <!-- HZ - E -->
+                        <path class="flecha-conector" d="M 800,160 Q 850,200 860,260" fill="none"/> <!-- VRZ - R -->
+                        <line class="flecha-conector" x1="300" y1="280" x2="200" y2="380"/> <!-- HZ - P -->
+                        <line class="flecha-conector" x1="300" y1="280" x2="400" y2="380"/> <!-- HZ - P -->
+                        <line class="flecha-conector" x1="300" y1="280" x2="380" y2="300"/> <!-- HZ - P -->
+                        <line class="flecha-conector" x1="400" y1="400" x2="380" y2="510"/> <!-- EZ - UC -->
+                        <line class="flecha-conector" x1="780" y1="150" x2="780" y2="450"/> <!-- VRZ - MM -->
+                        <line class="flecha-conector" x1="380" y1="300" x2="860" y2="180"/> <!-- LUP - P -->
+                        <line class="flecha-conector" x1="780" y1="150" x2="750" y2="250"/> <!-- VRZ - EWS -->
+                        <line class="flecha-conector" x1="650" y1="240" x2="650" y2="260"/> <!-- DF - RR -->
+
+                    </g>
+
+                    <text x="290" y="60" text-anchor="middle" class="titulo-principal">Prospective Intervention Actions</text>
+                    <text x="290" y="80" text-anchor="middle" class="titulo-principal" style="font-size: 14px;">(Future risk prevention)</text>
+
+                    <text x="710" y="60" text-anchor="middle" class="titulo-principal">Corrective Intervention Actions</text>
+                    <text x="710" y="80" text-anchor="middle" class="titulo-principal" style="font-size: 14px;">(Current risk mitigation)</text>
+
+                    <text class="titulo-eje" transform="translate(40, 260) rotate(-90)">Vulnerability Reduction Actions</text>
+                    <text class="titulo-eje" transform="translate(40, 580) rotate(-90)">Hazard Reduction Actions</text>
+
+                    <g id="nodes">
+                        <g id="node-inventario"><ellipse class="elipse-nodo" cx="200" cy="150" rx="50" ry="30"/><text class="texto-nodo" x="200" y="155">Inventory</text></g>
+                        <g id="node-zon-suscep"><ellipse class="elipse-nodo" cx="300" cy="250" rx="70" ry="30"/><text class="texto-nodo" x="300" y="255">Hazard zoning</text></g>
+                        <g id="node-educacion"><ellipse class="elipse-nodo" cx="600" cy="130" rx="80" ry="30"/><text class="texto-nodo" x="600" y="135">Education and training</text></g>
+                        <g id="node-zon-vuln"><ellipse class="elipse-nodo" cx="800" cy="130" rx="100" ry="30"/><text class="texto-nodo" x="800" y="135">Vulnerability and risk zoning</text></g>
+                        <g id="node-fondos"><ellipse class="elipse-nodo" cx="650" cy="210" rx="80" ry="30"/><text class="texto-nodo" x="650" y="215">Disaster funds</text></g>
+                        <g id="node-polizas"><ellipse class="elipse-nodo" cx="920" cy="180" rx="40" ry="25"/><text class="texto-nodo" x="920" y="185">Policies</text></g>
+                        <g id="node-sistemas-alerta"><ellipse class="elipse-nodo" cx="750" cy="290" rx="80" ry="30"/><text class="texto-nodo" x="750" y="295">Early warning systems</text></g>
+                        <g id="node-atencion"><ellipse class="elipse-nodo" cx="600" cy="290" rx="60" ry="30"/><text class="texto-nodo" x="600" y="295">Response and relief</text></g>
+                        <g id="node-reasentamiento"><ellipse class="elipse-nodo" cx="880" cy="290" rx="50" ry="20"/><text class="texto-nodo" x="880" y="295">Resettlement</text></g>
+                        <g id="node-pot"><ellipse class="elipse-nodo" cx="450" cy="300" rx="60" ry="30"/><text class="texto-nodo" x="450" y="305">Land Use Plans</text></g>
+                        <g id="node-suelos"><ellipse class="elipse-nodo" cx="200" cy="420" rx="70" ry="30"/><text class="texto-nodo" x="200" y="425">Protection soils</text></g>
+                        <g id="node-expansion"><ellipse class="elipse-nodo" cx="400" cy="420" rx="70" ry="30"/><text class="texto-nodo" x="400" y="425">Expansion zones</text></g>
+                        <g id="node-vigilancia"><ellipse class="elipse-nodo" cx="400" cy="550" rx="70" ry="30"/><text class="texto-nodo" x="400" y="555">Urban control</text></g>
+                        <g id="node-obras"><ellipse class="elipse-nodo" cx="750" cy="500" rx="80" ry="40"/><text class="texto-nodo" x="750" y="505">Mitigation measures</text></g>
+                    </g>
+                </svg>
+            </section>
+
+<!-- Landslide inventory -->
+            <section>
+				<h2>Landslide inventory</h2>
+				<img src="https://i.pinimg.com/736x/2e/0e/3a/2e0e3af953227d328e79677b4aa4b2cf.jpg" width="400">
+			</section>
+
+<!-- Landslide inventory -->
+            <section data-background-color="#ffffff">
+                <h2>Remote sensing tools</h2>
+				<img src="https://i.pinimg.com/736x/fa/66/af/fa66af7f2bd3befee68826626384cc02.jpg" >
+                <figcaption>Source: Lechner et al. (2020)</figcaption>
+            </section>
+
+<!-- hazard zonation -->
+            <section data-background-color="#ffffff">
+                <h2>Machine learning techniques</h2>
+                <img src="https://i.pinimg.com/736x/c9/4d/dd/c94ddd0de53c695374c906b97b9f948c.jpg" >
+                <figcaption></figcaption>
+            </section>
+
+<!-- land use planning -->
+			<section data-background-color="#ffffff">
+				<h2>Land use planning</h2>
+				<img src="https://i.pinimg.com/736x/e6/1c/bc/e61cbca8ac2be02dab23f060f2a033da.jpg" width="400">
+			</section>
+
+<!-- EWS -->
+			<section data-background-color="#ffffff">
+				<h2>Early warning systems</h2>
+				<img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41467-025-57640-w/MediaObjects/41467_2025_57640_Fig1_HTML.png?as=webp" width="800">
+                <figcaption>Source: Reichstein et al. (2025)</figcaption>
+            </section>
+
+            <section data-background-color="#ffffff">
+				<h2>Global Observing System</h2>
+				<img src="https://community.wmo.int/sites/default/files/GOS-fullsize.jpg" width="700">
+                <figcaption>Taken from https://community.wmo.int/en/observation-components-global-observing-system</figcaption>
+			</section>
+
+            <section data-background-color="#ffffff">
+				<h2>Effectiveness of communication</h2>
+				<img src="https://resiliencechallenge.nz/wp-content/uploads/app-logov2-1.png.webp" width="450">
+                <figcaption>Taken from https://resiliencechallenge.nz/opportunities-for-early-warning-systems-a-review/</figcaption>
+            </section>
+
+            <section data-background-color="#ffffff">
+				<h2>Impact-based forecast and warnings</h2>
+				<img class="r-stretch" src="https://community.wmo.int/sites/default/files/inline-images/ibfws%20PORTADA.png">
+                <figcaption>Taken from https://community.wmo.int/en/impact-based-forecast-and-warning-services</figcaption>
+            </section>
+
+<!-- Puntos clave -->
+            <section class="postit-slide" data-background-color="#ffffff">
+                <div class="title-container">
+                    <h2>Key takeaways</h2>
+                </div>
+                <div class="postit-note note-1 fragment">
+                    <div class="pin"></div>
+                    <h4>Social Construction of Risk</h4>
+                    <p>Disasters are the result of scenarios created by society.</p>
+                </div>
+                <div class="postit-note note-2 fragment">
+                    <div class="pin"></div>
+                    <h4>Sustainable Land Use</h4>
+                    <p>The best measure is sustainable occupation of the territory in harmony with nature.</p>
+                </div>
+                <div class="postit-note note-3 fragment">
+                    <div class="pin"></div>
+                    <h4>AI for hazard mapping</h4>
+                    <p>AI tools are essential for inventorying past events and creating more accurate hazard maps with ML.</p>
+                </div>
+                <div class="postit-note note-4 fragment">
+                    <div class="pin"></div>
+                    <h4>The Need for EWS</h4>
+                    <p>Since risk will always exist, Early Warning Systems are fundamental for managing current scenarios.</p>
+                </div>
+                <div class="postit-note note-5 fragment">
+                    <div class="pin"></div>
+                    <h4>AI-Powered EWS</h4>
+                    <p>EWS are based on AI-enhanced observation and impact-focused alert dissemination tools.</p>
+                </div>
+           </section>
+			
+		</div>
+
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/zoom/zoom.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/search/search.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="plugin/math/math.js"></script>
+
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/	
+		Reveal.initialize({
+			controls: false,
+			progress: false,
+			center: true,
+			slideNumber: false,
+			hash: true,
+			math: {
+				// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+				config: 'TeX-AMS_HTML-full',
+				TeX: {
+					Macros: {
+						R: '\\mathbb{R}',
+						set: ['\\left\\{#1 \\; ; \\; #2\\right\\}', 2]
+					}
+				}
+			},
+			menu: {
+				side: 'left', // 'left' or 'right'.
+				width: 'normal', // 'normal', 'wide', 'third', 'half', 'full', or
+				numbers: false,
+				titleSelector: 'h1, h2, h3',
+				useTextContentForMissingTitles: false,
+				hideMissingTitles: false,
+				markers: true,
+				custom: false,
+				themes: true,
+				themesPath: 'dist/theme/',
+				transitions: false,  // ['None', 'Fade', 'Slide']
+				openButton: true,
+				openSlideNumber: true,
+				keyboard: true,
+				sticky: false,
+				autoOpen: true,
+				delayInit: false,
+				openOnInit: false,
+				loadIcons: true
+			},
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealNotes, RevealMenu, RevealMath]
+		});
+	</script>
+
+</body>
+
+</html>
