@@ -183,7 +183,27 @@
         .mind-map-node .text {
             font-size: 0.6em;
         }
-        
+
+        .ai-tools-table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            font-size: 0.55em;
+        }
+        .ai-tools-table th, .ai-tools-table td {
+            border: 1px solid #a39797;
+            padding: 12px;
+            text-align: left;
+        }
+        .ai-tools-table th {
+            background-color: #797777;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .ai-tools-table tbody tr:nth-child(even) {
+            background-color: #c5c1c1;
+        }
+
         .analyst-slide .twocolumn-illustration {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
@@ -233,12 +253,8 @@
             text-align: left;
         }
 
-        .infographic-list-slide .title-container h2 {
-            font-size: 2em;
-        }
-
         .infographic-list-slide .title-container p {
-            font-size: 0.8em;
+            font-size: 0.5em;
             color: #555;
         }
 
@@ -295,12 +311,12 @@
         .infographic-list-slide .info-item:nth-child(3) .info-number { background-color: #ff8c00; }
         .infographic-list-slide .info-text h4 {
             margin: 0 0 5px 0;
-            font-size: 0.8em;
+            font-size: 1.2em;
         }
 
         .infographic-list-slide .info-text p {
             margin: 0;
-            font-size: 0.6em;
+            font-size: 0.8em;
             color: #555;
         }
         
@@ -728,18 +744,39 @@
 				<br>
 			</section>
 
-<!-- Disaster -->
-            <section data-background-color="#ffffff">
-				<h2>Disasters</h2>
-				<img src="https://i.pinimg.com/1200x/4d/9e/ad/4d9ead40cb94c85ebf5c7798fd65bc14.jpg" width="800">
-			</section>
-			
-<!-- Disaster -->
-			<section data-background-color="#ffffff">
-				<h2>Disasters</h2>
-				<img src="https://i.pinimg.com/1200x/5b/bc/b7/5bbcb7a0ac082ab43fab8160555a426c.jpg" width="800">
-			</section>
-            
+<!-- Estadisticas-->
+            <section class="impact-slide" data-background-color="#ffffff">
+                <div class="twocolumn-impact">
+                    <div class="illustration-container">
+                        <img src="https://wmo.int/sites/default/files/styles/prose_1x/public/Screen_Shot_2021-08-31_at_21.29.56.png?itok=mLIES7gY" width="600"/>
+                    </div>
+                    <div class="stats-container">
+                         <div class="stat-item fragment">
+                            <h3>50%</h3>
+                            <h4>Weather & climate-related hazards</h4>
+                            <p>From 1970 to 2019, weather, climate and water hazards accounted for 50% of all disasters.</p>
+                        </div>
+                        <div class="stat-item fragment">
+                            <h3>x5</h3>
+                            <h4>Number of disasters </h4>
+                            <p>It has increased by a factor of five over the 50-year period, driven by climate change and improved reporting.</p>
+                        </div>
+                        <div class="stat-item fragment">
+                            <h3>45%</h3>
+                            <h4>Deaths & economic losses </h4>
+                            <p>45% of all reported deaths and 74% of all reported economic losses.</p>
+                        </div>
+                        <div class="stat-item fragment">
+                            <h3>91%</h3>
+                            <h4>Deaths</h4>
+                            <p>More than 91% of disaster casualties occurred in developing countries.</p>
+                        </div>
+                    </div>
+                </div>
+                <p style="font-size: 20px; color: red;">The number of weather, climate and water extremes are increasing and will become more frequent and severe in many parts of the world as a result of climate change.</p>
+            <figcaption>Source: WMO (2021)</figcaption>
+            </section>
+
 <!-- climate-related disasters -->
             <section class="stakeholder-slide"; data-background-color="#ffffff">
                 <div class="content-wrapper">
@@ -791,6 +828,19 @@
                 </div>
             </section>
 
+<!-- Disaster -->
+            <section data-background-color="#ffffff">
+				<h2>Disasters</h2>
+				<img src="https://i.pinimg.com/736x/91/d8/65/91d865371e086a865f64340e46252e50.jpg" width="700">
+                <h2 class="fragment" style="font-style:italic; color:rgb(236, 7, 7); font-size:60px;">Cause?</h2>
+			</section>
+			
+<!-- Disaster -->
+			<section data-background-color="#ffffff">
+				<h2>Disasters</h2>
+				<img src="https://i.pinimg.com/1200x/5b/bc/b7/5bbcb7a0ac082ab43fab8160555a426c.jpg" width="800">
+			</section>
+            
 <!-- multi risk -->
             <section data-background-color="#ffffff">
 			    <h2>Multi-risk scenario</h2>
@@ -805,8 +855,132 @@
 
 <!-- risk model -->
              <section data-background-color="#ffffff">
+                <h2>Risk management framework</h2>
 				<img src="https://i.pinimg.com/736x/aa/0a/c9/aa0ac907d5400b834ba76ec3dbeda294.jpg" width="700">
 			</section>
+
+<!-- Market -->
+            <section data-background-color="#ffffff">
+                <h2 style="font-size: 28px;">The AI in Disaster Risk Market</h2>
+				<img src="https://www.insightaceanalytic.com/images_data/856001088.JPG" width="1000">
+            </section>
+
+<!-- Aplicaciones -->
+            <section data-background-color="#ffffff">
+                <h2 style="font-size: 28px;">Applications of AI in disaster management</h2>
+				<img src="https://www.researchgate.net/publication/342640089/figure/fig4/AS:941794481172489@1601552710178/Applications-of-artificial-intelligence-in-disaster-management-Note-A-solid-link-between_W640.jpg" width="500">
+                <figcaption>Source: Sun, Bocchini & Davison (2020)</figcaption>
+            </section>
+
+<!-- EGU -->
+            <section class="infographic-list-slide" data-background-color="#ffffff">
+                <div class="twocolumn-infographic">
+                    <div class="title-container">
+    				    <img src="https://www.nexcom.com/UploadFiles/FCKeditor/image/Product_News/240429-MCS-ATC-3750-IP7-6C/Edge%20AI%20Telematics%20Solution-ATC-3750-IP7-6C.jpg" width="500">
+                        <hr>
+                        <p>AI has the potential to speed up our understanding of natural hazards, analysing large volumes of data (and images) from different sources and improve proactive rather than reactive actions for disaster risk reduction (DRR).</p>
+                    </div>
+                    <ul class="info-list">
+                        <li class="info-item fragment">
+                            <div class="info-icon">
+                                <svg viewBox="0 0 24 24"><path d="M19.35,10.04C18.67,6.59,15.64,4,12,4C9.11,4,6.6,5.64,5.35,8.04C2.34,8.36,0,10.91,0,14c0,3.31,2.69,6,6,6h13 c2.76,0,5-2.24,5-5C24,12.36,21.95,10.22,19.35,10.04z M17,13l-5.02,5.02L7,13h3V9h4v4H17z"/></svg>
+                            </div>
+                            <div class="info-content">
+                                <div class="info-number">01</div>
+                                <div class="info-text">
+                                    <h4>AI for communication</h4>
+                                    <p>AI’s deployment is at the utmost priority to enhance the understanding of all phases of disasters, and this can be done by accelerating the development of algorithms that are reliable for our safety.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="info-item fragment">
+                            <div class="info-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12,8V4H8A4,4,0,0,0,4,8v4h4Z" opacity=".3"/><path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2ZM16,12a4,4,0,0,1-4,4H8v4H6V12a4,4,0,0,1,4-4h4V6h2v4A4,4,0,0,1,16,12Z"/></svg>
+                            </div>
+                            <div class="info-content">
+                                <div class="info-number">02</div>
+                                <div class="info-text">
+                                    <h4>AI for modelling: forecasting, and projecting</h4>
+                                    <p>AI helps accelerate data acquisition and analysis, taking into account the spectrum of heterogeneity owned by each natural hazard and situations.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="info-item fragment">
+                            <div class="info-icon">
+                                <svg viewBox="0 0 24 24"><path d="M18,8h-1V6c0-2.76-2.24-5-5-5S7,3.24,7,6v2H6c-1.1,0-2,0.9-2,2v10c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V10 C20,8.9,19.1,8,18,8z M12,17c-1.1,0-2-0.9-2-2s0.9-2,2-2s2,0.9,2,2S13.1,17,12,17z M15.1,8H8.9V6c0-1.71,1.39-3.1,3.1-3.1 s3.1,1.39,3.1,3.1V8z"/></svg>
+                            </div>
+                            <div class="info-content">
+                                <div class="info-number">03</div>
+                                <div class="info-text">
+                                    <h4>AI for data: monitoring and detecting</h4>
+                                    <p>There are new opportunities for AI in Space and related technologies that can also have an actual application in disaster risk detection, analysis and then reduction.</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <figcaption>Source: EGU blogs, NEXCOM</figcaption>
+            </section>
+
+<!-- Tabla de Herramientas de IA -->
+            <section data-background-color="#ffffff">
+                <h2>AI Tools and Example Uses</h2>
+                <table class="ai-tools-table">
+                    <thead>
+                        <tr>
+                            <th>Tools</th>
+                            <th>Description</th>
+                            <th>Examples of Commercial Systems</th>
+                            <th>Uses in Emergency & Disaster Management</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Predictive Analytics</td>
+                            <td>Finds patterns in data and forecasts future outcomes.</td>
+                            <td>Salesforce</td>
+                            <td>Risk modeling; disease outbreak spread prediction; flood/wildfire spread prediction; dashboards and situational awareness</td>
+                        </tr>
+                        <tr>
+                            <td>Generative AI and Natural Language Processing</td>
+                            <td>Understands and translates human language and creates new text, images, or video</td>
+                            <td>ChatGPT, Claude, DALL·E</td>
+                            <td>Drafting emergency communication templates; creating scenarios for training; Multilingual crisis communication; rumor detection</td>
+                        </tr>
+                        <tr>
+                            <td>Robotics & Automation</td>
+                            <td>Performs physical tasks with or without human control, including operating vehicles.</td>
+                            <td>iRobot Roomba, Da Vinci Surgical System; Boston Dynamics robots; Waymo</td>
+                            <td>Search-and-rescue in dangerous areas; supply delivery; debris clearing</td>
+                        </tr>
+                        <tr>
+                            <td>Computer Vision</td>
+                            <td>Identifies and interprets objects, people, and activities images/video.</td>
+                            <td>Google Photos, Clearview AI; Tesla Autopilot</td>
+                            <td>Damage assessment via drones/satellites; search-and-rescue; wildfire smoke mapping</td>
+                        </tr>
+                        <tr>
+                            <td>Speech Recognition & Generation</td>
+                            <td>Converts speech to text and produces human-like speech from text.</td>
+                            <td>Siri, Alexa</td>
+                            <td>Voice-to-text for field reporting; hands free operations</td>
+                        </tr>
+                        <tr>
+                            <td>Recommendation Systems</td>
+                            <td>Suggests products, content, or actions based on user behavior.</td>
+                            <td>Netflix, Spotify, Amazon</td>
+                            <td>Resource allocation; shelter options; individual risk alerts</td>
+                        </tr>
+                        <tr>
+                            <td>Fraud Detection & Security</td>
+                            <td>Identifies anomalies to call attention to risks.</td>
+                            <td>Mastercard AI Security, Darktrace, PayPal</td>
+                            <td>Detecting fraud in payments; cybersecurity</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <figcaption>Source: Patrick S. Roberts (2025)</figcaption>
+            </section>
 
 <!-- Matriz de intervenciones -->
             <section class="diapositiva-matriz-intervencion">
@@ -829,13 +1003,12 @@
                         <path class="flecha-conector" d="M 800,160 Q 850,200 860,260" fill="none"/> <!-- VRZ - R -->
                         <line class="flecha-conector" x1="300" y1="280" x2="200" y2="380"/> <!-- HZ - P -->
                         <line class="flecha-conector" x1="300" y1="280" x2="400" y2="380"/> <!-- HZ - P -->
-                        <line class="flecha-conector" x1="300" y1="280" x2="380" y2="300"/> <!-- HZ - P -->
+                        <line class="flecha-conector" x1="300" y1="280" x2="380" y2="300"/> <!-- HZ - LUP -->
                         <line class="flecha-conector" x1="400" y1="400" x2="380" y2="510"/> <!-- EZ - UC -->
                         <line class="flecha-conector" x1="780" y1="150" x2="780" y2="450"/> <!-- VRZ - MM -->
                         <line class="flecha-conector" x1="380" y1="300" x2="860" y2="180"/> <!-- LUP - P -->
                         <line class="flecha-conector" x1="780" y1="150" x2="750" y2="250"/> <!-- VRZ - EWS -->
-                        <line class="flecha-conector" x1="650" y1="240" x2="650" y2="260"/> <!-- DF - RR -->
-
+                        <line class="flecha-conector" x1="550" y1="290" x2="520" y2="300"/> <!-- EWS - RR -->
                     </g>
 
                     <text x="290" y="60" text-anchor="middle" class="titulo-principal">Prospective Intervention Actions</text>
@@ -852,7 +1025,6 @@
                         <g id="node-zon-suscep"><ellipse class="elipse-nodo" cx="300" cy="250" rx="70" ry="30"/><text class="texto-nodo" x="300" y="255">Hazard zoning</text></g>
                         <g id="node-educacion"><ellipse class="elipse-nodo" cx="600" cy="130" rx="80" ry="30"/><text class="texto-nodo" x="600" y="135">Education and training</text></g>
                         <g id="node-zon-vuln"><ellipse class="elipse-nodo" cx="800" cy="130" rx="100" ry="30"/><text class="texto-nodo" x="800" y="135">Vulnerability and risk zoning</text></g>
-                        <g id="node-fondos"><ellipse class="elipse-nodo" cx="650" cy="210" rx="80" ry="30"/><text class="texto-nodo" x="650" y="215">Disaster funds</text></g>
                         <g id="node-polizas"><ellipse class="elipse-nodo" cx="920" cy="180" rx="40" ry="25"/><text class="texto-nodo" x="920" y="185">Policies</text></g>
                         <g id="node-sistemas-alerta"><ellipse class="elipse-nodo" cx="750" cy="290" rx="80" ry="30"/><text class="texto-nodo" x="750" y="295">Early warning systems</text></g>
                         <g id="node-atencion"><ellipse class="elipse-nodo" cx="600" cy="290" rx="60" ry="30"/><text class="texto-nodo" x="600" y="295">Response and relief</text></g>
@@ -867,23 +1039,31 @@
             </section>
 
 <!-- Landslide inventory -->
-            <section>
-				<h2>Landslide inventory</h2>
-				<img src="https://i.pinimg.com/736x/2e/0e/3a/2e0e3af953227d328e79677b4aa4b2cf.jpg" width="400">
-			</section>
+            <section data-background-color="#ffffff">
+                <h2>AI & Remote sensing</h2>
+				<img src="https://i.pinimg.com/736x/fa/66/af/fa66af7f2bd3befee68826626384cc02.jpg" >
+                <figcaption>Source: Lechner et al. (2020)</figcaption>
+            </section>
 
 <!-- Landslide inventory -->
             <section data-background-color="#ffffff">
-                <h2>Remote sensing tools</h2>
-				<img src="https://i.pinimg.com/736x/fa/66/af/fa66af7f2bd3befee68826626384cc02.jpg" >
-                <figcaption>Source: Lechner et al. (2020)</figcaption>
+				<h2>Landslide mapping</h2>
+				<img src="https://www.researchgate.net/publication/335532172/figure/fig2/AS:862557078294528@1582661041038/The-8-m-FORMOSAT-2-pre-and-post-event-images-for-Taiwan-landslide-mapping-a-Pre-and_W640.jpg" width="500">
+                <figcaption>Source: Lu et al. (2019)</figcaption>
+            </section>
+
+<!-- Disaster response -->
+            <section data-background-color="#ffffff">
+				<h2>Damage and strategize rescue efforts</h2>
+				<img src="https://wp.technologyreview.com/wp-content/uploads/2023/02/satellite-comp.jpeg?fit=1080,607" width="700">
+                <figcaption>Source: xView2, Tate Ryan-Mosley (2023)</figcaption>
             </section>
 
 <!-- hazard zonation -->
             <section data-background-color="#ffffff">
                 <h2>Machine learning techniques</h2>
-                <img src="https://i.pinimg.com/736x/c9/4d/dd/c94ddd0de53c695374c906b97b9f948c.jpg" >
-                <figcaption></figcaption>
+                <img src="https://pub.mdpi-res.com/remotesensing/remotesensing-12-02757/article_deploy/html/images/remotesensing-12-02757-ag.png?1598439130" width="800">
+                <figcaption>Source: Gudiyangada et al. (2020)</figcaption>
             </section>
 
 <!-- land use planning -->
@@ -903,6 +1083,13 @@
 				<h2>Global Observing System</h2>
 				<img src="https://community.wmo.int/sites/default/files/GOS-fullsize.jpg" width="700">
                 <figcaption>Taken from https://community.wmo.int/en/observation-components-global-observing-system</figcaption>
+			</section>
+
+<!-- InSAR-->
+            <section data-background-color="#ffffff">
+				<h2 style="font-size: 28px;">Interferometric Synthetic Aperture Radar (InSAR)</h2>
+				<img src="https://www.ga.gov.au/__data/assets/image/0008/22859/13-7402-1-sml1.jpg" width="700">
+                <figcaption>Source: Geoscience Australia portal</figcaption>
 			</section>
 
             <section data-background-color="#ffffff">
