@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>AGU2025: The coupled evolution of urban growth and landslide risk: Lessons from a century
+        of disasters in Medellín, Colombia
+        </title>
+
+    <meta name="description" content="Una presentación sobre el uso de IA para la gestión de desastres en la región amazónica, para la AI Climate Academy.">
+    <meta name="author" content="Edier Aristizábal nd the framework Reveals by Hakim El Hattab">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/serif.min.css" id="theme">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+
+	<style>
+	
+        :root {
+            --r-main-font-size: 2em;
+            --r-heading1-size: 2.5em;
+            --r-heading2-size: 1.6em;
+            --r-heading3-size: 1.3em;
+            --r-heading4-size: 1.0em;
+            --r-link-color: #2a76dd;
+            --r-main-color: #333;
+            --r-heading-color: #000000;
+            --r-background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .reveal {
+            font-family: 'Lato', sans-serif;
+        }
+
+		.reveal h3 {
+			font-size: 1em;
+			color: black;
+			font-weight: bold;
+			text-align: left;
+            color: var(--r-heading-color);
+		}
+        		
+        .reveal .slide-number {
+            font-size: 0.6em;
+            color: #555;
+            background-color: rgba(0, 0, 0, 0.05);
+            padding: 5px 15px;
+            border-radius: 10px;
+            left: 80;
+            bottom: 25px;
+            transform: translateX(-20%);
+        }
+		
+        .reveal figcaption {
+            font-size: 0.5em;
+            color: gray;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: -15px;
+        }
+		
+		.primera #marca-agua{
+			display:none;
+			}
+		
+		.primera #lecture{
+			display:none;
+			}
+		
+		.reveal section p {
+			font-size: 0.7em;
+			}
+		
+		.reveal section li {
+			font-size: 0.6em;
+			}
+
+        .box { 
+            border:1px solid #e5e5e9; 
+            border-radius:14px; 
+            padding:12px 
+            }
+        
+        .ok { 
+            color:#10893e; 
+            }
+        
+        .warn { 
+            color:#b1440e; 
+        }
+
+		.reveal .move {
+			display: block;
+			margin-left: 200px;
+			margin-right: auto;
+			}
+
+        .reveal .twocolumn {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+            align-items: center;
+        }
+
+		.reveal #left{
+			left:-8.33%;
+			text-align: left;
+			float: left;
+			width:80%;
+			z-index:-10;
+			}
+
+		.reveal #right {
+			left:31.25%;
+			top: 75px;
+			float: right;
+			text-align: right;
+			z-index:-10;
+			width:20%;
+			}
+
+        .reveal .left-align {
+            text-align: left;
+        }
+
+        .reveal pre code {
+            border-radius: 10px;
+            font-size: 0.6em;
+            padding: 15px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<div class="slides">
+
+			<div style="font-style:italic; color:rgb(9, 9, 9); font-size:14px; position:relative; top:97%; text-align: center;">
+				AGU 2025 | New Orleans
+			</div>
+
+<!-- Portada -->
+			<section data-background-color="#ffffff"; data-state="primera">
+				<h1 style="font-size: 44px; color: black;">
+                    The coupled evolution of urban growth and landslide risk: Lessons from a century
+                    of disasters in Medellín, Colombia</h1>
+				<br>
+					<p><strong>Edier Aristizábal</strong>, Ugur Ozturk, Sara Nieto, Alexander Guerra, Asaf Aguilar, Juan David Moreno</p>
+                    <p style="font-size: 0.6em;">Universidad Nacional de Colombia | University of Potsdam | DAGRD</p>
+				<br>
+				<p id="demo" style="position:absolute;top:100%;right:45%;color: gray;font-size: 1rem;"></p>
+				<br>
+			</section>
+<!-- location -->
+            <section data-background-color="#ffffff">
+                <h3>Medellín location</h3>
+                    <div >
+                        <div>
+                            <img src="https://i.pinimg.com/736x/9e/d7/86/9ed7864edc9071fb0cfaf4a516a1f15b.jpg" width="500">
+                        </div>
+                    </div>
+            </section>
+<!-- Medellin -->
+            <section data-background-color="#ffffff">
+                <h3>Urban pressure in a constrained valley</h3>
+                <div class="twocolumn">
+                    <div class="left" >
+                        <div>
+                            <img src="https://i.pinimg.com/736x/e0/42/81/e042815c3ec031a125ad81cab9843132.jpg" width="1000">
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div>
+                            <img src="https://i.pinimg.com/736x/0d/2b/55/0d2b55f2e29fd6ea727a4574988f6d3e.jpg" width="1000">
+                        </div>
+                    </div>
+                </div>
+            </section>
+<!-- Medellin -->
+            <section data-background-color="#ffffff">
+                <h3>The Urban Explosion (1951–2005)</h3>
+                    <div >
+                        <div>
+                            <img src="/fig/Figura1.jpg" width="900">
+                        </div>
+                    </div>
+            </section>
+<!-- Medellin -->
+            <section data-background-color="#ffffff">
+                <h3>Spatiotemporal evolution of the urban footprint</h3>
+                    <div >
+                        <div>
+                            <img src="https://i.pinimg.com/1200x/11/1c/85/111c85823828ce0f891f71c3df5e85f0.jpg" width="800">
+                        </div>
+                    </div>
+            </section>
+   <!-- Medellin -->
+            <section data-background-color="#ffffff">
+                <h3>Medellín: A City Climbing the Walls</h3>
+                <div >
+                    <div >
+                        <div>
+                            <img src="/fig/ladera.jpg" width="900">
+                        </div>
+                    </div>
+                    <div>
+                        <ul >
+                            <li >Rapid, often <strong>informal</strong> expansion over the last 80 years.</li>
+                            <li >The flatlands are full; growth is pushed onto steep, unstable flanks.</li>
+                        </ul>
+                        <p>High urbanization pressure meets high landslide susceptibility.</p>
+                    </div>
+                </div>
+            </section>
+<!-- Medellin -->
+            <section data-background-color="#ffffff">
+                <h3>Compounding Drivers: Urban vulnerability & Rainfall</h3>
+                    <div >
+                        <div>
+                            <img src="https://i.pinimg.com/736x/c1/fa/b1/c1fab1f0a2052a259d0c47313f9d0f47.jpg" width="700">
+                        </div>
+                    </div>
+            </section>
+<!-- Media Luna -->
+            <section data-background-color="#ffffff">
+                <h3>Media Luna (1954), >200 fatalities</h3>
+                    <div >
+                        <div>
+                            <img src="/fig/media luna.jpg" width="500">
+                        </div>
+                    </div>
+            </section>
+<!-- Villatina -->
+            <section data-background-color="#ffffff">
+                <h3>Villatina (1987), >500 fatalities</h3>
+                    <div >
+                        <div>
+                            <img src="https://i.pinimg.com/1200x/c3/d8/d7/c3d8d7d2ce7ab31af4603c116ff50b08.jpg" width="700">
+                        </div>
+                    </div>
+            </section>
+<!-- La Gabriela -->
+            <section data-background-color="#ffffff">
+                <h3>La Gabriela (2010), 97 fatalities</h3>
+                    <div >
+                        <div>
+                            <img src="/fig/La Gabriela Bello 281.JPG" width="700">
+                        </div>
+                    </div>
+            </section>
+<!-- Granizal -->
+            <section data-background-color="#ffffff">
+                <h3>Granizal (2025), 27 fatalities</h3>
+                    <div >
+                        <div>
+                            <img src="https://i.pinimg.com/736x/06/a6/d7/06a6d78cff4b5efa764d49b1dceff64f.jpg" width="700">
+                        </div>
+                    </div>
+            </section>
+<!-- Medellin -->
+            <section data-background-color="#ffffff">
+                <h3>Migration of risk to the urban fringe</h3>
+                    <div >
+                        <div>
+                            <img src="/fig/medellin3.jpeg" width="700">
+                        </div>
+                    </div>
+            </section>
+<!-- Medellin -->
+            <section data-background-color="#ffffff">
+                <h3>Marginalized on the margins: Inequality in landslide exposure</h3>
+                    <div >
+                        <div>
+                            <img src="/fig/medellin2.jpeg" width="400">
+                        </div>
+                    </div>
+            </section>
+<!-- Alto verde -->
+            <section data-background-color="#ffffff">
+                <h3>Alto Verde (2008), 17 fatalities</h3>
+                    <div >
+                        <div>
+                            <img src="https://i.pinimg.com/1200x/ee/dd/ae/eeddae3e5c5541789f29e088bef15b14.jpg" width="800">
+                        </div>
+                    </div>
+            </section>
+   <!-- Medellin -->    
+            <section>
+                <h3>Take-Home Messages</h3>
+                <div style="background: #ecf0f1; padding: 20px; border-radius: 15px; text-align: left;">
+                    <ul style="margin-bottom: 0;">
+                        <li style="margin-bottom: 15px;" class="fragment">Urbanization is not just occupying hazardous ground; it is actively <strong>modifying and amplifying</strong> susceptibility, especially in informal contexts.</li>
+                        <li style="margin-bottom: 15px;" class="fragment">Static zoning based only on geology is insufficient. We need dynamic policies that address *how* settlements are built on the urban fringe.</li>
+                    </ul>
+                </div>
+            </section>
+            <section data-background-color="#ffffff">
+                <h1>¡Gracias!</h1>
+                <p>https://edieraristizabal.github.io/Presentaciones/AGU2025_Medellin.html</p>
+                <br>
+                <p style="font-size: 0.8em;color: rgb(26, 37, 201);">evaristizabalg@unal.edu.co</p>
+            </section>
+		</div>
+
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/zoom/zoom.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/search/search.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="plugin/math/math.js"></script>
+
+<!-- Lógica para el cronómetro de cuenta regresiva -->
+    <script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/	
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			center: true,
+			slideNumber: 'c/t',
+			hash: true,
+			math: {
+				// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+				config: 'TeX-AMS_HTML-full',
+				TeX: {
+					Macros: {
+						R: '\\mathbb{R}',
+						set: ['\\left\\{#1 \\; ; \\; #2\\right\\}', 2]
+					}
+				}
+			},
+			menu: {
+				side: 'left', // 'left' or 'right'.
+				width: 'wide', // 'normal', 'wide', 'third', 'half', 'full', or
+				numbers: false,
+				titleSelector: 'h1, h2, h3',
+				useTextContentForMissingTitles: false,
+				hideMissingTitles: false,
+				markers: true,
+				custom: false,
+				themes: true,
+				themesPath: 'dist/theme/',
+				transitions: false,  // ['None', 'Fade', 'Slide']
+				openButton: true,
+				openSlideNumber: true,
+				keyboard: true,
+				sticky: false,
+				autoOpen: true,
+				delayInit: false,
+				openOnInit: false,
+				loadIcons: true
+			},
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealNotes, RevealMenu, RevealMath]
+		});
+	</script>
+
+</body>
+
+</html>

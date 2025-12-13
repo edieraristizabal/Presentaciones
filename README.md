@@ -19,6 +19,10 @@ El contenido de las presentaciones es de libre uso, pero se debe referenciar ade
 * [UniGraz](/Graz2024.html)
 * [UTB-2024](/UTB2024.html)
 * [AIclimate](/AIclimate_Disaster.html)
+* [AGU2025 Medellin](/AGU2025_Medellin.html)
+* [AGU2025 Spatial](/AGU2025_spatial.html)
+
+
 
 
 

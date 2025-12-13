@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>AGU2025: Spatial Dependence in Landslide Susceptibility</title>
+
+    <meta name="description" content="Una presentación sobre el uso de IA para la gestión de desastres en la región amazónica, para la AI Climate Academy.">
+    <meta name="author" content="Edier Aristizábal nd the framework Reveals by Hakim El Hattab">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/serif.min.css" id="theme">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+
+	<style>
+	
+        :root {
+            --r-main-font-size: 2em;
+            --r-heading1-size: 2.5em;
+            --r-heading2-size: 1.6em;
+            --r-heading3-size: 1.3em;
+            --r-heading4-size: 1.0em;
+            --r-link-color: #2a76dd;
+            --r-main-color: #333;
+            --r-heading-color: #000000;
+            --r-background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .reveal {
+            font-family: 'Lato', sans-serif;
+        }
+
+		.reveal h3 {
+			font-size: 1em;
+			color: black;
+			font-weight: bold;
+			text-align: left;
+            color: var(--r-heading-color);
+		}
+        		
+        .reveal .slide-number {
+            font-size: 0.6em;
+            color: #555;
+            background-color: rgba(0, 0, 0, 0.05);
+            padding: 5px 15px;
+            border-radius: 10px;
+            left: 80;
+            bottom: 25px;
+            transform: translateX(-20%);
+        }
+		
+        .reveal figcaption {
+            font-size: 0.5em;
+            color: gray;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: -15px;
+        }
+		
+		.primera #marca-agua{
+			display:none;
+			}
+		
+		.primera #lecture{
+			display:none;
+			}
+		
+		.reveal section p {
+			font-size: 0.7em;
+			}
+		
+		.reveal section li {
+			font-size: 0.6em;
+			}
+
+        .box { 
+            border:1px solid #e5e5e9; 
+            border-radius:14px; 
+            padding:12px 
+            }
+        
+        .ok { 
+            color:#10893e; 
+            }
+        
+        .warn { 
+            color:#b1440e; 
+        }
+
+		.reveal .move {
+			display: block;
+			margin-left: 200px;
+			margin-right: auto;
+			}
+
+        .reveal .twocolumn {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+            align-items: center;
+        }
+
+		.reveal #left{
+			left:-8.33%;
+			text-align: left;
+			float: left;
+			width:80%;
+			z-index:-10;
+			}
+
+		.reveal #right {
+			left:31.25%;
+			top: 75px;
+			float: right;
+			text-align: right;
+			z-index:-10;
+			width:20%;
+			}
+
+        .reveal .left-align {
+            text-align: left;
+        }
+
+        .reveal pre code {
+            border-radius: 10px;
+            font-size: 0.6em;
+            padding: 15px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<div class="slides">
+
+			<div style="font-style:italic; color:rgb(9, 9, 9); font-size:14px; position:relative; top:97%; text-align: center;">
+				AGU 2025 | New Orleans
+			</div>
+
+<!-- Portada -->
+			<section data-background-color="#ffffff"; data-state="primera">
+				<h1 style="font-size: 44px; color: black;">
+					Accounting for spatial dependence and heterogeneity in landslide susceptibility assessment
+				</h1>
+				<br>
+					<p><strong>Edier Aristizábal</strong>, Luigi Lombardo, Oliver Korup</p>
+                    <p style="font-size: 0.6em;">Universidad Nacional de Colombia | University of Twente | University of Potsdam</p>
+				<br>
+				<p id="demo" style="position:absolute;top:100%;right:45%;color: gray;font-size: 1rem;"></p>
+				<br>
+			</section>
+
+<!-- Location -->
+            <section data-background-color="#ffffff">
+                <h3>Study Area: Northern Colombian Andes</h3>
+                <div class="twocolumn">
+                    <div class="right">
+                        <div class="map-placeholder">
+                            <img src="/fig/Fig2a.png">
+                        </div>
+                    </div>
+                    <div class="left" style="text-align: right;">
+                        <ul>
+                            <li>Tectonically active, tropical rainfall.</li>
+                            <br>
+                            <li><strong>10,837 Landslides</strong> mapped (1970-2023).</li>
+                            <br>
+                            <li><strong>Unit:</strong> 533 Catchments (The Terrain Mapping Unit).</li>
+                            <br>
+                            <li><strong>Susceptibility proxy:</strong> Number of landslides</li>
+                            <br>
+                            <li><strong>Predictors:</strong> Rainfall, Slope, Elevation, Relief, etc.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+<!-- Spatial structure -->
+            <section data-background-color="#ffffff">
+                <h3>The Two Dimensions of Spatial Structure</h3>
+                <p style="text-align: left;">Landslide susceptibility is driven by two distinct spatial forces often ignored in traditional modeling:</p>
+                
+                <div class="cols" style="display: flex; justify-content: space-around; margin-top: 30px;">
+                    
+                    <div class="col fade-up" style="flex: 1; padding: 10px; text-align: center;">
+                        <h4 style="color: #2980b9; margin-bottom: 10px;">Spatial Heterogeneity</h4>
+                        <p style="font-size: 0.6em; margin: 0;">"The rules change across space"</p>
+                        <p style="font-size: 0.5em; color: #7f8c8d;">(Non-Stationarity)</p>
+                        
+                        <svg width="200" height="150" viewBox="0 0 200 150" style="margin-top: 20px; overflow: visible;">
+                            <rect x="10" y="10" width="80" height="80" fill="#ecf0f1" rx="5" />
+                            <text x="50" y="110" font-size="12" text-anchor="middle" fill="#2980b9">Region A</text>
+                            <line x1="20" y1="80" x2="80" y2="20" stroke="#2980b9" stroke-width="3" stroke-linecap="round" />
+                            <circle cx="30" cy="70" r="2" fill="#2c3e50"/>
+                            <circle cx="50" cy="50" r="2" fill="#2c3e50"/>
+                            <circle cx="70" cy="30" r="2" fill="#2c3e50"/>
+
+                            <rect x="110" y="10" width="80" height="80" fill="#ecf0f1" rx="5" />
+                            <text x="150" y="110" font-size="12" text-anchor="middle" fill="#2980b9">Region B</text>
+                            <line x1="120" y1="60" x2="180" y2="50" stroke="#2980b9" stroke-width="3" stroke-linecap="round" />
+                            <circle cx="130" cy="58" r="2" fill="#2c3e50"/>
+                            <circle cx="150" cy="55" r="2" fill="#2c3e50"/>
+                            <circle cx="170" cy="52" r="2" fill="#2c3e50"/>
+
+                            <text x="100" y="135" font-size="14" font-weight="bold" text-anchor="middle" fill="#34495e">&beta;<tspan dy="3" font-size="10">A</tspan> &ne; &beta;<tspan dy="0" font-size="10">B</tspan></text>
+                        </svg>
+                    </div>
+
+                    <div class="col fade-up" style="flex: 1; padding: 10px; text-align: center;">
+                        <h4 style="color: #c0392b; margin-bottom: 10px;">Spatial Dependence</h4>
+                        <p style="font-size: 0.6em; margin: 0;">"Neighbors influence each other"</p>
+                        <p style="font-size: 0.5em; color: #7f8c8d;">(Autocorrelation)</p>
+
+                        <svg width="200" height="150" viewBox="0 0 200 150" style="margin-top: 20px; overflow: visible;">
+                            <circle cx="100" cy="60" r="15" fill="#c0392b" stroke="#e74c3c" stroke-width="2" />
+                            
+                            <circle cx="60" cy="60" r="10" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" />
+                            <circle cx="140" cy="60" r="10" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" />
+                            <circle cx="100" cy="20" r="10" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" />
+                            <circle cx="100" cy="100" r="10" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" />
+
+                            <path d="M 85 60 L 75 60" stroke="#c0392b" stroke-width="2" marker-end="url(#arrowhead)" />
+                            <path d="M 115 60 L 125 60" stroke="#c0392b" stroke-width="2" marker-end="url(#arrowhead)" />
+                            <path d="M 100 45 L 100 35" stroke="#c0392b" stroke-width="2" marker-end="url(#arrowhead)" />
+                            <path d="M 100 75 L 100 85" stroke="#c0392b" stroke-width="2" marker-end="url(#arrowhead)" />
+
+                            <defs>
+                                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#c0392b" />
+                                </marker>
+                            </defs>
+                            
+                            <text x="100" y="135" font-size="14" font-weight="bold" text-anchor="middle" fill="#34495e">y<tspan dy="3" font-size="10">i</tspan> &sim; y<tspan dy="0" font-size="10">j</tspan></text>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+<!-- Spatial hetereogeneity -->
+            <section data-background-color="#ffffff">
+                <h3 style="color: #2980b9;">Spatial Heterogeneity</h3>
+                        <p>The relationship between predictors (e.g., slope) and landslides is not universal; it varies locally.</p>
+                        <img src="/fig/mgwr_results.png" width="800">
+                        <p>A global model "averages" these effects, failing to identify local drivers.<p>
+            </section>
+<!-- Spatial dependence -->
+            <section data-background-color="#ffffff">
+                <h3 style="color: #c0392b;">Spatial Dependence</h3>
+                        <p style="text-align: left;">The propensity for landslides in one unit is influenced by its neighbors.</p>
+                        <img src="/fig/Fig6.png" width="800">
+                        <p><strong>Latent Drivers:</strong> It acts as a proxy for unobserved, spatially continuous factors. Ignoring this leads to underestimated variance and overconfident p-values.</p>
+            </section>
+<!-- Spatial models -->
+            <section data-background-color="#ffffff">
+                <h3 >Spatial models</h3>
+                        <img src="/fig/Fig1.png" width="1000">
+            </section>
+<!-- Framework -->
+            <section data-background-color="#ffffff">
+                <h3>Two Frameworks</h3>
+                <p style="text-align: left;">We tested the spatial hypothesis using two statistical approaches:</p>
+                
+                <div class="cols" style="display: flex; justify-content: center; align-items: stretch; gap: 20px; margin-top: 30px;">
+                    
+                    <div style="flex: 1; background: #d5f5e3; border: 2px solid #27ae60; border-radius: 15px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        <h4 style="color: #1e8449; margin-bottom: 10px;">Gaussian Framework</h4>
+                        <p style="font-size: 0.6em; margin-bottom: 15px; color: #145a32;">Modeling continuous <strong>(Log-transformed)</strong></p>
+                        
+                        <div style="background: rgba(255,255,255,0.6); padding: 10px; border-radius: 5px; margin-bottom: 15px;">
+                            <p style="font-size: 0.7em; margin: 0; color: #1e8449;">
+                                $$ y = \mathbf{X}\beta + \rho \mathbf{W}y + \lambda \mathbf{W}\mu + \epsilon $$
+                            </p>
+                        </div>
+
+                        <ul style="font-size: 0.8em; text-align: left; padding-left: 20px; color: #1e8449;">
+                            <li>Heterogeneity: <strong>GWR, Spatial Regimes</strong></li>
+                            <li>Dependence: <strong>SAR, SEM</strong></li>
+                        </ul>
+                    </div>
+
+                    <div style="flex: 1; background: #fcf3cf; border: 2px solid #f39c12; border-radius: 15px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        <h4 style="color: #d35400; margin-bottom: 10px;">Bayesian Framework</h4>
+                        <p style="font-size: 0.6em; margin-bottom: 15px; color: #ba4a00;">Modeling Counts <strong>(Hierarchical Poisson)</strong></p>
+                        
+                        <div style="background: rgba(255,255,255,0.6); padding: 10px; border-radius: 5px; margin-bottom: 15px;">
+                            <p style="font-size: 0.7em; margin: 0; color: #d35400;">
+                                $$ Y_{ij} \sim Poisson(\lambda_{ij}) $$
+                                $$ \log(\lambda_{ij}) = \mathbf{X}_{ij}\beta + \underbrace{u_{basin(j)}}_{\text{Regional}} + \underbrace{v_{spatial(i)}}_{\text{Local}} $$
+                            </p>
+                        </div>
+
+                        <ul style="font-size: 0.8em; text-align: left; padding-left: 20px; color: #d35400;">
+                            <li><strong>Heterogeneity (Level 1-Region):</strong> Random Intercepts</li>
+                            <li><strong>Dependence: (Level 2-Local):</strong> ICAR, BYM, Leroux</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+<!-- Regimes -->
+            <section data-background-color="#ffffff">
+                <h3>Spatial regimes (Heterogeneity)</h3>
+                <div class="twocolumn">
+                    <div class="right">
+                        <div class="map-placeholder">
+                            <img src="/fig/Fig7a.png">
+                        </div>
+                    </div>
+                    <div class="left" style="text-align: right;">
+                        <div class="map-placeholder">
+                            <img src="/fig/Fig7b.png">
+                        </div>
+                    </div>
+                </div>
+            </section>
+<!-- Regimes -->
+            <section data-background-color="#ffffff">
+                <h3>Spatial regimes (Heterogeneity)</h3>
+                        <div class="map-placeholder">
+                            <img src="/fig/Fig10.png" width="1000">
+                        </div>
+            </section>
+
+<!-- Regimes -->
+            <section data-background-color="#ffffff">
+                <h3>MGWR (Heterogeneity)</h3>
+                        <div class="map-placeholder">
+                            <img src="/fig/Fig11.png" width="1000">
+                        </div>
+            </section>
+
+<!-- Regimes -->
+            <section data-background-color="#ffffff">
+                <h3>SAR (Dependence)</h3>
+                        <div class="map-placeholder">
+                            <img src="/fig/Fig13.png" width="1000">
+                        </div>
+            </section>
+<!-- Matrix -->
+            <section data-background-color="#ffffff">
+                <h3>Neighborhood Matrices (Dependence)</h3>
+                
+                <div class="cols" style="display: flex; justify-content: center; gap: 40px; margin-top: 40px;">
+                    
+                    <div class="col" style="flex: 1; text-align: center;">
+                        <div class="map-placeholder">
+                            <img src="/fig/w_queen.png" style="max-height: 350px; width: auto;">
+                        </div>
+                        <div style="margin-top: 15px;">
+                            <h4 style="color: #27ae60; margin: 0;">SAR Model</h4>
+                            <p style="font-size: 0.6em; color: #555; margin: 5px 0;">
+                                (Simultaneous Autoregressive)
+                            </p>
+                            <div style="background: #eafaf1; padding: 5px; border-radius: 5px; display: inline-block;">
+                                <p style="font-size: 0.6em; font-weight: bold; color: #1e8449; margin: 0;">
+                                    Global Spillover Effect
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col" style="flex: 1; text-align: center;">
+                        <div class="map-placeholder">
+                            <img src="/fig/H_queen.png" style="max-height: 350px; width: auto;">
+                        </div>
+                        <div style="margin-top: 15px;">
+                            <h4 style="color: #d35400; margin: 0;">CAR Model</h4>
+                            <p style="font-size: 0.6em; color: #555; margin: 5px 0;">
+                                (Conditional Autoregressive)
+                            </p>
+                            <div style="background: #fdebd0; padding: 5px; border-radius: 5px; display: inline-block;">
+                                <p style="font-size: 0.6em; font-weight: bold; color: #a04000; margin: 0;">
+                                    Local Conditional Impact
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+<!-- CAR -->
+            <section data-background-color="#ffffff">
+                <h3>CAR (Heterogeneity & Dependence)</h3>
+                        <div class="map-placeholder">
+                            <img src="/fig/m5_ler.jpg" width="1000">
+                        </div>
+            </section>
+
+<!-- Disaster -->
+            <section>
+                <h3>Take-Home Messages</h3>
+                <ul>
+                    <li class="fragment">Landslide susceptibility is inherently a <strong>spatial process</strong>. Ignoring this leads to misspecification.</li>
+                    <br>
+                    <li class="fragment"><strong>Latent factors dominate:</strong> Up to 87% of unexplained variance is spatially structured.</li>                      
+                    <br>
+                    <li class="fragment">By handling spatial autocorrelation, we "purify" the fixed effects (Slope, Rain), making them <strong>less biased</strong>.</li>
+                    <br>
+                    <li class="fragment">Allows stratification by <strong>geomorphological domain</strong> (e.g., Canyon vs. Plateau).</li>
+                    <br>
+                    <li class="fragment">Spatial models create <strong>smoother</strong>, geologically realistic high-susceptibility zones, rather than "patchy".</li>
+                </ul>
+            </section>
+
+<!-- Diapositiva final-->
+            <section data-background-color="#ffffff">
+                <h1>¡Gracias!</h1>
+                <p>https://edieraristizabal.github.io/Presentaciones/AGU2025_spatial.html</p>
+                <br>
+                <p style="font-size: 0.8em;color: rgb(26, 37, 201);">evaristizabalg@unal.edu.co</p>
+            </section>
+			
+		</div>
+
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/zoom/zoom.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/search/search.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="plugin/math/math.js"></script>
+
+<!-- Lógica para el cronómetro de cuenta regresiva -->
+    <script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/	
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			center: true,
+			slideNumber: 'c/t',
+			hash: true,
+			math: {
+				// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+				config: 'TeX-AMS_HTML-full',
+				TeX: {
+					Macros: {
+						R: '\\mathbb{R}',
+						set: ['\\left\\{#1 \\; ; \\; #2\\right\\}', 2]
+					}
+				}
+			},
+			menu: {
+				side: 'left', // 'left' or 'right'.
+				width: 'wide', // 'normal', 'wide', 'third', 'half', 'full', or
+				numbers: false,
+				titleSelector: 'h1, h2, h3',
+				useTextContentForMissingTitles: false,
+				hideMissingTitles: false,
+				markers: true,
+				custom: false,
+				themes: true,
+				themesPath: 'dist/theme/',
+				transitions: false,  // ['None', 'Fade', 'Slide']
+				openButton: true,
+				openSlideNumber: true,
+				keyboard: true,
+				sticky: false,
+				autoOpen: true,
+				delayInit: false,
+				openOnInit: false,
+				loadIcons: true
+			},
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealNotes, RevealMenu, RevealMath]
+		});
+	</script>
+
+</body>
+
+</html>
