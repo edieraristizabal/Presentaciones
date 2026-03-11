@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Simposio Antioquia: Evaluación de Riesgo por Movimientos en Masa</title>
+
+    <meta name="description" content="Presentación sobre la evaluación de la susceptibilidad, amenaza, vulnerabilidad y riesgo por movimientos en masa para Antioquia.">
+    <meta name="author" content="Edier Aristizábal">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/serif.min.css" id="theme">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+	<style>
+        :root {
+            --r-main-font-size: 2em;
+            --r-heading1-size: 2.5em;
+            --r-heading2-size: 1.6em;
+            --r-heading3-size: 1.3em;
+            --r-heading4-size: 1.0em;
+            --r-link-color: #2a76dd;
+            --r-main-color: #333;
+            --r-heading-color: #1a1a1a;
+            --r-background-color: #f0f0f0;
+        }
+
+        .reveal {
+            font-family: 'Lato', sans-serif;
+            background: #ffffff;
+        }
+
+		.reveal h1, .reveal h2, .reveal h3 {
+			color: var(--r-heading-color);
+			font-weight: bold;
+            text-shadow: none;
+		}
+
+        .reveal h1 { font-size: 2.2em; }
+        .reveal h2 { font-size: 1.8em; }
+        .reveal h3 { font-size: 1.4em; border-bottom: 2px solid #2a76dd; display: inline-block; padding-bottom: 10px; margin-bottom: 40px; }
+
+        .reveal p, .reveal li {
+            font-size: 0.8em;
+            color: #444;
+            line-height: 1.4;
+        }
+
+        .reveal .slide-number {
+            font-size: 0.5em;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .reveal .background-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(255, 255, 255, 0.85);
+            z-index: -1;
+        }
+
+        .reveal section[data-background] h1, 
+        .reveal section[data-background] h2,
+        .reveal section[data-background] p {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .caption {
+            font-size: 0.5em;
+            color: #888;
+            margin-top: 10px;
+        }
+
+        .highlight-box {
+            background: rgba(42, 118, 221, 0.1);
+            border-left: 5px solid #2a76dd;
+            padding: 20px;
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .twocolumn {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 30px;
+            align-items: center;
+        }
+
+        img {
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            max-height: 500px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<div class="slides">
+
+            <!-- Diapositiva 1: Portada -->
+			<section data-background-color="#1a1a1a">
+				<h1 style="color: #ffffff;">Evaluación de Riesgo por Movimientos en Masa</h1>
+                <h2 style="color: #2a76dd; font-size: 1.2em;">Departamento de Antioquia</h2>
+				<br>
+				<p style="color: #cccccc; font-size: 0.7em;"><strong>Edier Aristizábal Giraldo</strong> & Equipo de Trabajo</p>
+                <p style="color: #999; font-size: 0.5em;">Universidad Nacional de Colombia | Gestión del Riesgo</p>
+			</section>
+
+            <!-- Diapositiva 2: Introducción -->
+            <section>
+                <h3>Introducción</h3>
+                <div class="twocolumn">
+                    <div>
+                        <p>Aumento en la frecuencia e intensidad de eventos climáticos extremos.</p>
+                        <div class="highlight-box">
+                            <p>Estrategias para desarrollar resiliencia y capacidad de adaptación.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="pptx_extracted/ppt/media/image17.jpg" alt="Contexto">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diapositiva 3: Componentes -->
+            <section data-background-color="#f8f9fa">
+                <h3>Componentes del Estudio</h3>
+                <div style="display: flex; justify-content: space-around; align-items: center; height: 300px;">
+                    <div class="fragment" style="background: #2a76dd; color: white; padding: 20px; border-radius: 50%;">Susceptibilidad</div>
+                    <div class="fragment" style="background: #e74c3c; color: white; padding: 20px; border-radius: 50%;">Amenaza</div>
+                    <div class="fragment" style="background: #f1c40f; color: white; padding: 20px; border-radius: 50%;">Vulnerabilidad</div>
+                    <div class="fragment" style="background: #2c3e50; color: white; padding: 20px; border-radius: 50%;">Riesgo</div>
+                </div>
+            </section>
+
+            <!-- Diapositiva 4: Unidad de Análisis -->
+            <section>
+                <h3>Unidad de Análisis: Unidades de Ladera</h3>
+                <div class="twocolumn">
+                    <div>
+                        <img src="pptx_extracted/ppt/media/image27.png" alt="Unidades de Ladera">
+                    </div>
+                    <div style="text-align: left;">
+                        <ul>
+                            <li>64.834 Unidades</li>
+                            <li>Basado en Pendiente, Aspecto y DEM</li>
+                            <li>91.8% del territorio cubierto</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diapositiva 5: Inventario -->
+            <section>
+                <h3>Inventario de Eventos</h3>
+                <div class="twocolumn">
+                    <div style="text-align: left;">
+                        <h2 style="font-size: 2.5em; color: #2a76dd;">23.543</h2>
+                        <p>Eventos Totales</p>
+                        <ul>
+                            <li>Sensores remotos: 65,9%</li>
+                            <li>GEOHAZARDS: 11,9%</li>
+                            <li>SIMMA: 22,2%</li>
+                        </ul>
+                        <a href="https://geohazards.com.co/visor-geohazard.html" target="_blank" style="font-size: 0.6em;">Visor Geohazard</a>
+                    </div>
+                    <div>
+                        <img src="pptx_extracted/ppt/media/image28.png" alt="Inventario">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diapositiva 6: Variables Predictoras -->
+            <section>
+                <h3>Variables Predictoras</h3>
+                <img src="pptx_extracted/ppt/media/image29.png" width="800">
+                <p>Análisis de variables categóricas (Moda) y continuas (Media) por unidades de ladera.</p>
+            </section>
+
+            <!-- Diapositiva 7: Modelo Susceptibilidad -->
+            <section>
+                <h3>Modelo de Susceptibilidad</h3>
+                <div class="highlight-box">
+                    <p>Modelos Jerárquicos Multinivel (HGLM)</p>
+                    <p style="font-size: 0.7em;">Incorporando el método <strong>INLA</strong> (Integrated Nested Laplace Approximation)</p>
+                </div>
+                <div class="twocolumn">
+                    <div style="text-align: left; font-size: 0.8em;">
+                        <ul>
+                            <li>Heterogeneidad espacial</li>
+                            <li>Dependencia espacial</li>
+                            <li>Estructura jerárquica</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="pptx_extracted/ppt/media/image30.png" alt="Esquema Modelo">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diapositiva 8: Detonados por Lluvia -->
+            <section data-background-color="#e3f2fd">
+                <h3>Susceptibilidad por Lluvia</h3>
+                <img src="pptx_extracted/ppt/media/image31.png" width="700">
+            </section>
+
+            <!-- Diapositiva 9: Precipitación -->
+            <section>
+                <h3>Análisis de Precipitación</h3>
+                <div class="twocolumn">
+                    <div>
+                        <p><strong>CHIRPS:</strong> Promedios (81-24) y acumulados (30, 60, 90 días).</p>
+                    </div>
+                    <div>
+                        <p><strong>IDEAM:</strong> Umbrales de lluvia y probabilidad de excedencia.</p>
+                    </div>
+                </div>
+                <img src="pptx_extracted/ppt/media/image38.png" width="600">
+            </section>
+
+            <!-- Diapositiva 10: Modelo de Newmark (Sismo) -->
+            <section>
+                <h3>Susceptibilidad por Sismo</h3>
+				<p style="font-size: 0.6em;">Modelo de Newmark: DEM, Espesor, Cohesión, Fricción, Av.</p>
+                <div class="twocolumn">
+                    <img src="pptx_extracted/ppt/media/image40.png" alt="Escenario Seco">
+                    <img src="pptx_extracted/ppt/media/image41.png" alt="Escenario Húmedo">
+                </div>
+            </section>
+
+            <!-- Diapositiva 11: Vulnerabilidad Física -->
+            <section>
+                <h3>Vulnerabilidad Física</h3>
+                <div class="twocolumn">
+                    <div style="text-align: left;">
+                        <ul>
+                            <li>Estructura (FRS)</li>
+                            <li>Nivel de fallas (NF)</li>
+                            <li>Estado de conservación (CS)</li>
+                        </ul>
+                        <div class="highlight-box">
+                            <p>Alta: 0.5 - 1.0 (Colapso)</p>
+                            <p>Media: 0.1 - 0.5 (Grave)</p>
+                            <p>Baja: 0.0 - 0.1 (Leve)</p>
+                        </div>
+                    </div>
+                    <img src="pptx_extracted/ppt/media/image45.png" alt="Mapa Vulnerabilidad">
+                </div>
+            </section>
+
+            <!-- Diapositiva 12/13: Daño Económico y Personas -->
+            <section>
+                <h3>Estimación de Daños</h3>
+                <div class="twocolumn">
+                    <div class="highlight-box">
+                        <p><strong>Económico:</strong> Por material de construcción y área.</p>
+                    </div>
+                    <div class="highlight-box">
+                        <p><strong>Personas:</strong> Relación exponencial (Guía SGC).</p>
+                    </div>
+                </div>
+                <img src="pptx_extracted/ppt/media/image48.png" width="600">
+            </section>
+
+            <!-- Diapositiva 14/15: Vulnerabilidad Social -->
+            <section>
+                <h3>Vulnerabilidad Social</h3>
+                <div class="twocolumn">
+                    <img src="pptx_extracted/ppt/media/image49.png" alt="Vulnerabilidad Social">
+                    <div style="text-align: left;">
+                        <p>Fragilidad Socioeconómica</p>
+                        <ul>
+                            <li>Capacidades institucionales</li>
+                            <li>Preparación y Respuesta</li>
+                            <li>Recuperación y Gestión</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diapositiva 16/17: Riesgo -->
+            <section data-background-color="#fff8f8">
+                <h3>Riesgo por Movimientos en Masa</h3>
+                <img src="pptx_extracted/ppt/media/image85.png" width="700">
+                <p>Integración de Amenaza y Vulnerabilidad.</p>
+            </section>
+
+            <!-- Diapositiva 18/19: Aplicativo -->
+            <section>
+                <h3>Visor de Escenarios de Riesgo (VER)</h3>
+                <div class="twocolumn">
+                    <img src="pptx_extracted/ppt/media/image70.png" width="500">
+                    <div style="text-align: left;">
+                        <ol style="font-size: 0.6em;">
+                            <li>Escenarios de riesgo</li>
+                            <li>Recursos disponibles</li>
+                            <li>Controles de visualización</li>
+                            <li>Umbrales de precipitación</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diapositiva 20: Cierre -->
+            <section data-background-color="#1a1a1a">
+                <h1 style="color: white;">¡Gracias!</h1>
+                <p style="color: #2a76dd;">Edier Aristizábal Giraldo</p>
+                <p style="color: #888; font-size: 0.6em;">evaristizabalg@unal.edu.co</p>
+            </section>
+
+		</div>
+
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/zoom/zoom.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/search/search.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/math/math.js"></script>
+
+    <script>
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			center: true,
+			slideNumber: 'c/t',
+			hash: true,
+			plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath]
+		});
+	</script>
+
+</body>
+
+</html>

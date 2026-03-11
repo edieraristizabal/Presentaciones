@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Resultados de Susceptibilidad por Movimientos en Masa - Antioquia</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/black.min.css" id="theme">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            /* Deep ocean to dark slate */
+            font-family: 'Outfit', sans-serif;
+            color: #ecf0f1;
+        }
+
+        .reveal h1,
+        .reveal h2,
+        .reveal h3,
+        .reveal h4,
+        .reveal h5,
+        .reveal h6 {
+            font-family: 'Outfit', sans-serif;
+            text-transform: none;
+            letter-spacing: 0.5px;
+            font-weight: 800;
+            color: #48dbfb;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        .reveal h1 {
+            font-size: 3.2em;
+        }
+
+        .reveal h2 {
+            font-size: 2.3em;
+            color: #0abde3;
+        }
+
+        .reveal h3 {
+            font-size: 1.8em;
+            color: #00d2d3;
+        }
+
+        .reveal p,
+        .reveal li {
+            font-weight: 300;
+            font-size: 0.9em;
+            line-height: 1.5;
+            color: #dff9fb;
+        }
+
+        .reveal .slide-background {
+            background-color: transparent !important;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .highlight {
+            color: #feca57;
+            font-weight: 600;
+        }
+
+        .danger {
+            color: #ff6b6b;
+            font-weight: 600;
+        }
+
+        .chart-box {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: rgba(0, 0, 0, 0.4);
+            border-left: 4px solid #0abde3;
+            padding: 15px 25px;
+            border-radius: 8px;
+            margin: 10px;
+            text-align: left;
+            flex: 1;
+            min-width: 200px;
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-left: 4px solid #feca57;
+        }
+
+        .stat-value {
+            font-size: 2em;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.8em;
+            color: #c8d6e5;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-logo {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 0.5em;
+            color: rgba(255, 255, 255, 0.4);
+            z-index: 1000;
+        }
+
+        /* Lists */
+        .reveal ul {
+            list-style-type: '⚡ ';
+        }
+
+        .reveal ul li {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Intro Slide -->
+            <section data-auto-animate>
+                <div class="glass-panel">
+                    <h1 style="color: #fff; margin-bottom: 10px;">Resultados de Modelación</h1>
+                    <h3 style="color: #48dbfb;">Susceptibilidad por Movimientos en Masa</h3>
+                    <p style="margin-top: 40px; font-size: 1.1em;">Departamento de Antioquia - DAGRAN</p>
+                    <p style="font-size: 0.7em; color: #8395a7;">Análisis de Amenazas | Universidad Nacional de Colombia
+                    </p>
+                </div>
+            </section>
+
+            <!-- Context Slide -->
+            <section data-auto-animate>
+                <h2>Enfoque del Modelo</h2>
+                <div class="glass-panel" style="text-align: left;">
+                    <p>Se evaluaron dos acercamientos al modelo de susceptibilidad:</p>
+                    <ul>
+                        <li><span class="highlight">Inventario completo</span> (Histórico + Sensores Remotos)</li>
+                        <li><span class="highlight">Inventario único</span> de Sensores Remotos</li>
+                    </ul>
+                    <div
+                        style="margin-top: 30px; padding: 20px; background: rgba(10, 189, 227, 0.1); border-radius: 8px;">
+                        <p style="margin: 0;"><strong>Decisión:</strong> Se utilizó el <span
+                                class="highlight">inventario completo</span> para el cálculo del riesgo, ya que captura
+                            el efecto fundamental de las <em>intervenciones antrópicas</em> (zonas urbanas) en la
+                            activación de movimientos.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Variables Slide -->
+            <section>
+                <section data-auto-animate>
+                    <h2>Factores Determinantes</h2>
+                    <p>Efectos Fijos del Modelo GLM Espacial</p>
+                    <div class="chart-box">
+                        <div class="stat-card">
+                            <span class="stat-value" style="color:#ff6b6b;">+4.25</span>
+                            <span class="stat-label">Cobertura Construida</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-value" style="color:#feca57;">+1.10</span>
+                            <span class="stat-label">Suelos Coluviales</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-value" style="color:#00d2d3;">+0.55</span>
+                            <span class="stat-label">Pendiente</span>
+                        </div>
+                    </div>
+                </section>
+                <section data-auto-animate>
+                    <h3>Análisis de Variables</h3>
+                    <div class="glass-panel" style="text-align: left;">
+                        <ul>
+                            <li>Las <strong>áreas construidas</strong> aumentan la susceptibilidad <span
+                                    class="danger">5 veces más</span> que la cobertura arbórea.</li>
+                            <li>Los depósitos <strong>transportados gravitacionales</strong> (coluviales) presentan un
+                                incremento muy significativo.</li>
+                            <li>La <strong>pendiente</strong> mantiene su relación directa clásica con la inestabilidad.
+                            </li>
+                            <li>Los suelos gruesos y orientaciones de alto azimuth tienden a <em>reducir</em> levemente
+                                la susceptibilidad.</li>
+                        </ul>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Zonas Homogéneas Slide -->
+            <section>
+                <h2>Variabilidad Espacial Regional</h2>
+                <p>Análisis de Efectos Aleatorios</p>
+                <div class="glass-panel">
+                    <p style="text-align: left; margin-bottom: 20px;">Las características de ciertas zonas amplifican
+                        intensamente la susceptibilidad de las variables:</p>
+                    <table style="width: 100%; font-size: 0.8em; color: #fff;">
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.2);">
+                            <th style="padding: 10px; color: #0abde3;">Subregión</th>
+                            <th style="padding: 10px; color: #0abde3;">Efecto</th>
+                            <th style="padding: 10px; color: #0abde3;">Impacto</th>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px;">Zona 2 <span style="font-size:0.7em;color:#8395a7;">(Suroeste,
+                                    Occidente, V. Aburrá)</span></td>
+                            <td style="padding: 10px; color: #ff6b6b; font-weight:bold;">+1.42</td>
+                            <td style="padding: 10px;">Amplificación Extrema</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px;">Zona 1 <span style="font-size:0.7em;color:#8395a7;">(Nordeste,
+                                    Bajo Cauca)</span></td>
+                            <td style="padding: 10px; color: #feca57; font-weight:bold;">+0.83</td>
+                            <td style="padding: 10px;">Amplificación Alta</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px;">Zona 4 / 5 <span style="font-size:0.7em;color:#8395a7;">(Urabá,
+                                    M. Medio)</span></td>
+                            <td style="padding: 10px; color: #1dd1a1; font-weight:bold;">-1.73 / -0.83</td>
+                            <td style="padding: 10px;">Efecto Atenuado</td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Niveles de Susceptibilidad -->
+            <section data-auto-animate>
+                <h2>Distribución del Peligro</h2>
+                <div class="chart-box" style="margin-bottom:30px;">
+                    <div class="stat-card" style="border-color:#1dd1a1;">
+                        <span class="stat-value">Baja</span>
+                        <span class="stat-label">0-1 eventos</span>
+                    </div>
+                    <div class="stat-card" style="border-color:#feca57;">
+                        <span class="stat-value">Media / Alta</span>
+                        <span class="stat-label">1-20 eventos</span>
+                    </div>
+                    <div class="stat-card" style="border-color:#ff6b6b;">
+                        <span class="stat-value">Muy Alta</span>
+                        <span class="stat-label">>20 eventos</span>
+                    </div>
+                </div>
+                <div class="glass-panel" style="text-align: left;">
+                    <ul>
+                        <li><span class="highlight">Mayoría del Depto.</span>: Susceptibilidad Baja (norte y este).</li>
+                        <li><span class="danger">Valle de Aburrá</span>: Agrupa ~30% de las unidades con niveles
+                            Medio/Alto/Muy Alto. Municipios clave: Medellín, Bello, La Estrella.</li>
+                        <li><span class="danger">Suroeste Antioqueño</span>: Máxima inestabilidad rural asociada a la
+                            Cordillera Occidental (Betulia, Salgar, Andes).</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Clusters Slide -->
+            <section>
+                <section data-auto-animate>
+                    <h2 style="color: #feca57;">Enjambres de Movimientos</h2>
+                    <p>Eventos tipo <span class="highlight">Cluster</span> (3,021 eventos)</p>
+                    <div class="glass-panel" style="text-align: left;">
+                        <p>Generados por detonantes de alta intensidad e influenciados por aportes de precipitaciones
+                            extremas, fuertemente vinculados a <span class="danger">Avenidas Torrenciales</span>.</p>
+                        <div class="chart-box">
+                            <div class="stat-card">
+                                <span class="stat-value">17.7%</span>
+                                <span class="stat-label">En cuencas Muy Alta Amenaza</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-value">34.5%</span>
+                                <span class="stat-label">En cuencas Alta Amenaza</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section data-auto-animate>
+                    <h2 style="color: #feca57;">Enjambres: Localización</h2>
+                    <div class="glass-panel" style="text-align: left;">
+                        <p>Solo 17 de las 33 subzonas hidrográficas presentan estos eventos.</p>
+                        <ul>
+                            <li><span class="highlight">Alta Amenaza:</span> Samaná Sur (Argelia, Nariño), San Juan
+                                (Andes, Betania), Samaná Norte, Porce.</li>
+                            <li><span class="highlight">La macro-cuenca de San Juan</span> concentra más del 25% de los
+                                clusters (margen occidental, límites con Chocó).</li>
+                            <li><span class="highlight">Amenaza Moderada:</span> Nechí Alto (Anorí), Murrí-Penderisco
+                                (Urrao, Frontino).</li>
+                        </ul>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Avenidas Torrenciales y Vías -->
+            <section>
+                <section data-auto-animate>
+                    <h2 style="color: #ff6b6b;">Nuevas Zonas de Amenaza Alta</h2>
+                    <p>Avenidas Torrenciales inducidas por Enjambres</p>
+                    <div class="glass-panel" style="text-align: left;">
+                        <p>Los aportes de sedimentos de estos eventos <span class="highlight">modifican
+                                totalmente</span> la amenaza original:</p>
+                        <ul>
+                            <li><span class="danger">Amenaza "Muy Alta":</span> Cuencas afectadas ahora clasifican en el
+                                máximo grado de amenaza.</li>
+                            <li><span class="highlight">Unidades de ladera:</span> Recategorizadas por alta
+                                susceptibilidad a eventos tipo cluster.</li>
+                        </ul>
+                    </div>
+                </section>
+                <section data-auto-animate>
+                    <h2 style="color: #0abde3;">Susceptibilidad en Vías</h2>
+                    <p>Eventos en entornos viales</p>
+                    <div class="glass-panel" style="text-align: left;">
+                        <ul>
+                            <li><span class="highlight">Densidad Crítica (>1 evento/km²):</span> Vías secundarias en
+                                Medellín, Barbosa, Heliconia y Angostura.</li>
+                            <li><span class="highlight">Vías Principales Afectadas:</span> Sectores hacia San Roque, San
+                                Vicente, Ituango, Carolina y Guadalupe.</li>
+                            <li><span class="danger">Focos Subregionales:</span> Valle de Aburrá, Norte y Suroeste.</li>
+                        </ul>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Precipitacion ENSO Slide -->
+            <section>
+                <section data-auto-animate>
+                    <h2>Análisis de Precipitación</h2>
+                    <p>CHIRPS e IDEAM (1981-2024)</p>
+                    <div class="chart-box">
+                        <div class="stat-card" style="border-color:#ff6b6b;">
+                            <span class="stat-value">3,127 mm</span>
+                            <span class="stat-label">Promedio El Niño</span>
+                        </div>
+                        <div class="stat-card" style="border-color:#1dd1a1;">
+                            <span class="stat-value">2,995 mm</span>
+                            <span class="stat-label">Promedio Neutral</span>
+                        </div>
+                        <div class="stat-card" style="border-color:#0abde3;">
+                            <span class="stat-value">3,341 mm</span>
+                            <span class="stat-label">Promedio La Niña</span>
+                        </div>
+                    </div>
+                </section>
+                <section data-auto-animate>
+                    <h3>Impacto del Fenómeno ENSO</h3>
+                    <div class="glass-panel" style="text-align: left;">
+                        <ul>
+                            <li><span class="danger">El Niño:</span> Reducción notable en primeros y últimos meses (Ene,
+                                Feb, Dic). Comportamiento más irregular.</li>
+                            <li><span class="highlight">La Niña:</span> Lluvias más intensas y distribución uniforme.
+                                Aumento radical de acumulados durante el año.</li>
+                            <li><span class="highlight">Peligro acumulado:</span> A los 30, 60 y 90 días, la
+                                precipitación antecedente muestra zonas de concentración consistentes, detonando
+                                episodios de inestabilidad.</li>
+                        </ul>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Final Slide -->
+            <section>
+                <div class="glass-panel" style="background: rgba(10, 189, 227, 0.1); border-color: #0abde3;">
+                    <h2>Conclusiones Clave</h2>
+                    <ul style="text-align: left;">
+                        <li>La urbanización es un detonador crítico de susceptibilidad (Factor 5x).</li>
+                        <li>El relieve andino (Zonas 1 y 2) exacerba las condiciones del suelo significativamente.</li>
+                        <li>Los eventos en enjambre no solo representan deslizamientos masivos, sino antesalas de
+                            avenidas torrenciales.</li>
+                    </ul>
+                </div>
+            </section>
+
+        </div>
+        <div class="footer-logo">DAGRAN - Estudio de Riesgos</div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            controls: true,
+            progress: true,
+            center: true,
+            transition: 'slide', // none/fade/slide/convex/concave/zoom
+            backgroundTransition: 'fade'
+        });
+    </script>
+</body>
+
+</html>
