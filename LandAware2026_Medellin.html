@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Umbrales de lluvia para la gestión del riesgo por deslizamientos en el trópico</title>
+
+    <meta name="description"
+        content="Presentación sobre umbrales de lluvia para la gestión del riesgo por deslizamientos en el trópico.">
+    <meta name="author" content="Edier Aristizábal">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/serif.min.css" id="theme">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --r-main-font-size: 2em;
+            --r-heading1-size: 2.5em;
+            --r-heading2-size: 1.6em;
+            --r-heading3-size: 1.3em;
+            --r-heading4-size: 1.0em;
+            --r-link-color: #2a76dd;
+            --r-main-color: #333;
+            --r-heading-color: #000000;
+            --r-background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .reveal {
+            font-family: 'Lato', sans-serif;
+        }
+
+        .reveal h3 {
+            font-size: 1em;
+            color: black;
+            font-weight: bold;
+            text-align: left;
+            color: var(--r-heading-color);
+        }
+
+        .reveal .slide-number {
+            font-size: 0.6em;
+            color: #555;
+            background-color: rgba(0, 0, 0, 0.05);
+            padding: 5px 15px;
+            border-radius: 10px;
+            left: 80;
+            bottom: 25px;
+            transform: translateX(-20%);
+        }
+
+        .reveal figcaption {
+            font-size: 0.5em;
+            color: gray;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        /* Footer del evento — posicionado fuera de .slides para no solapar contenido */
+        #footer-event {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-style: italic;
+            color: rgb(9, 9, 9);
+            font-size: 14px;
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        /* Ocultar footer en la portada */
+        .primera #footer-event {
+            display: none;
+        }
+
+        .primera #marca-agua {
+            display: none;
+        }
+
+        .primera #lecture {
+            display: none;
+        }
+
+        .reveal section p {
+            font-size: 0.7em;
+            margin: 6px 0;
+        }
+
+        .reveal section li {
+            font-size: 0.6em;
+            margin-bottom: 4px;
+        }
+
+        /* Limitar altura máxima de imágenes para que no empujen el texto fuera de pantalla */
+        .reveal section img {
+            max-height: 340px;
+            width: auto;
+        }
+
+        .box {
+            border: 1px solid #e5e5e9;
+            border-radius: 14px;
+            padding: 12px;
+        }
+
+        .ok {
+            color: #10893e;
+        }
+
+        .warn {
+            color: #b1440e;
+        }
+
+        .reveal .move {
+            display: block;
+            margin-left: 200px;
+            margin-right: auto;
+        }
+
+        .reveal .twocolumn {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+            align-items: center;
+        }
+
+        .reveal #left {
+            left: -8.33%;
+            text-align: left;
+            float: left;
+            width: 80%;
+            z-index: -10;
+        }
+
+        .reveal #right {
+            left: 31.25%;
+            top: 75px;
+            float: right;
+            text-align: right;
+            z-index: -10;
+            width: 20%;
+        }
+
+        .reveal .left-align {
+            text-align: left;
+        }
+
+        .reveal pre code {
+            border-radius: 10px;
+            font-size: 0.6em;
+            padding: 15px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="reveal">
+
+        <!-- Footer persistente en todas las diapositivas (excepto portada) -->
+        <div id="footer-event">LandAware | 2026 | Medellín</div>
+
+        <div class="slides">
+
+            <!-- Portada -->
+            <section data-background-color="#ffffff" data-state="primera">
+                <h1 style="font-size: 44px; color: black;">
+                    Umbrales de lluvia para la gestión del riesgo por deslizamientos en el trópico
+                </h1>
+                <br>
+                <p><strong>Edier Aristizábal</strong></p>
+                <p style="font-size: 0.6em;">Universidad Nacional de Colombia</p>
+                <br>
+                <p id="demo" style="position:absolute;top:100%;right:45%;color: gray;font-size: 1rem;"></p>
+                <div style="display:flex; justify-content:center; align-items:center; gap:40px; margin-top:20px;">
+                    <img src="fig/LogoUNAL.jpeg" style="max-height:150px; width:auto;">
+                    <img src="fig/logoGEOHAZARD.png" style="max-height:150px; width:auto;">
+                </div>
+            </section>
+
+            <!-- Slide 1: Características de los movimientos en masa detonados por lluvia -->
+            <section data-background-color="#ffffff">
+                <h3>Deslizamientos detonados por lluvia en el trópico</h3>
+                <div>
+                    <img src="fig/MenMLluvia.jpg" style="max-height:450px; width:auto;">
+                </div>
+                <ul>
+                    <li>Alta frecuencia en zonas montañosas tropicales de Colombia y Latinoamérica</li>
+                    <li>Detonados por lluvias intensas y/o prolongadas</li>
+                    <li>Generan pérdidas humanas y económicas recurrentes en la región</li>
+                </ul>
+            </section>
+
+            <!-- Slide 2: Margen de Estabilidad -->
+            <section data-background-color="#ffffff">
+                <h3>Margen de Estabilidad</h3>
+                <div>
+                    <img src="fig/margenEstabilidad.png" style="max-height:450px; width:auto;">
+                </div>
+                <ul>
+                    <li><strong>Largo plazo:</strong> susceptibilidad controlada por geología, morfología y cobertura
+                        del suelo</li>
+                    <li><strong>Corto plazo:</strong> la lluvia reduce temporalmente el margen de estabilidad hasta
+                        superar el umbral de falla</li>
+                </ul>
+            </section>
+
+            <!-- Slide 3: El problema es la infiltración -->
+            <section data-background-color="#ffffff">
+                <h3>El problema no es lo que llueve, sino lo que se infiltra</h3>
+                <div>
+                    <img src="fig/infiltracion.png" style="max-height:500px; width:auto;">
+                </div>
+            </section>
+
+            <!-- Slide 4: Variables que controlan la inestabilidad -->
+            <section data-background-color="#ffffff">
+                <h3>Estabilidad de laderas</h3>
+                <div>
+                    <img src="fig/landslideRainfall.png" style="max-height:500px; width:auto;">
+                </div>
+            </section>
+
+            <!-- Slide 5: Definición de umbrales de lluvia -->
+            <section data-background-color="#ffffff">
+                <h3>¿Qué es un umbral de lluvia para deslizamientos?</h3>
+                <div>
+                    <img src="fig/umbral.png" style="max-height:500px; width:auto;">
+                </div>
+            </section>
+
+            <!-- Slide 6: Umbrales empíricos -->
+            <section data-background-color="#ffffff">
+                <h3>Umbrales empíricos</h3>
+                <div>
+                    <img src="fig/empiricos.png" style="max-height:700px; width:auto;">
+                </div>
+                <ul>
+                    <li>Basados en el análisis estadístico de registros históricos de lluvia y deslizamientos</li>
+                    <li>Relaciones típicas: Intensidad–Duración (ID) o Duración–Acumulado (DA)</li>
+                    <li>Prácticos y ampliamente usados; su calidad depende de la completitud del inventario</li>
+                </ul>
+            </section>
+
+            <!-- Slide 7: Umbrales físicos -->
+            <section data-background-color="#ffffff">
+                <h3>Umbrales físicos (basados en procesos)</h3>
+                <div>
+                    <img src="fig/fisicos.png" style="max-height:500px; width:auto;">
+                </div>
+                <ul>
+                    <li>Incorporan modelos hidrológicos y de estabilidad de laderas</li>
+                    <li>Requieren parámetros geotécnicos e hidráulicos del suelo</li>
+                    <li>Mayor capacidad de generalización espacial, pero mayor incertidumbre paramétrica</li>
+                </ul>
+            </section>
+
+            <!-- Slide 8: Sistemas complejos -->
+            <section data-background-color="#ffffff">
+                <div>
+                    <img src="fig/sistemasComplejos.png" style="max-height:600px; width:auto;">
+                </div>
+            </section>
+
+            <!-- Slide 9: SAT - Verdaderos/Falsos positivos y negativos -->
+            <section data-background-color="#ffffff">
+                <h3>Evaluación del desempeño de los umbrales en un SAT</h3>
+                <div>
+                    <img src="fig/SAT.png" style="max-height:600px; width:auto;">
+                </div>
+            </section>
+
+            <!-- Slide 10: Zona de influencia -->
+            <section data-background-color="#ffffff">
+                <h3>Área de influencia: ¿qué dato representa qué ladera?</h3>
+                <div>
+                    <img src="fig/zonaInfluencia.png" style="max-height:450px; width:auto;">
+                </div>
+                <p>La asignación espacial entre registros pluviométricos y deslizamientos es fundamental. Un área de
+                    influencia mal definida introduce ruido en el análisis y degrada la calidad del umbral obtenido.</p>
+            </section>
+
+            <!-- Slide 11: Cómo llueve en el trópico -->
+            <section data-background-color="#ffffff">
+                <h3>¿Cómo llueve en cada región? Variabilidad espacial y temporal</h3>
+                <div>
+                    <img src="fig/comoLlueve.png" style="max-height:480px; width:auto;">
+                </div>
+                <p>El régimen de lluvias en el trópico es altamente variable en el espacio y el tiempo. Conocer el
+                    patrón local de precipitación es indispensable para construir umbrales representativos y confiables.
+                </p>
+            </section>
+
+            <!-- Slide 12: Definición del evento de lluvia -->
+            <section data-background-color="#ffffff">
+                <h3>Definición del evento de lluvia detonante y acumulada</h3>
+                <div>
+                    <img src="fig/evento.png" style="max-height:480px; width:auto;">
+                </div>
+                <p>La forma en que se define el evento de lluvia —inicio, duración y fin— afecta directamente la
+                    caracterización del umbral. Diferentes criterios de separación de eventos producen umbrales
+                    distintos para la misma región.</p>
+            </section>
+
+            <!-- Slide 13: Lluvia antecedente vs acumulada -->
+            <section data-background-color="#ffffff">
+                <h3>Lluvia antecedente vs. lluvia acumulada: cada zona es diferente</h3>
+                <div>
+                    <img src="fig/antecedenteVsAcumulada.jpg" style="max-height:480px; width:auto;">
+                </div>
+                <ul>
+                    <li>En algunas zonas predomina la <strong>lluvia antecedente</strong> (saturación previa del suelo)
+                    </li>
+                    <li>En otras, la <strong>intensidad del evento detonante</strong> es el factor clave</li>
+                    <li>La combinación óptima depende del clima, tipo de suelo y morfología local</li>
+                </ul>
+            </section>
+
+            <!-- Slide 14: Importancia de los No-eventos -->
+            <section data-background-color="#ffffff">
+                <h3>La importancia de los No-eventos en la definición de umbrales</h3>
+                <div>
+                    <img src="fig/noEventos.png" style="max-height:480px; width:auto;">
+                </div>
+                <ul>
+                    <li>Un umbral sólo tiene sentido si discrimina condiciones con y sin deslizamiento</li>
+                    <li>Ignorar los No-eventos sobreestima la amenaza y aumenta las falsas alarmas</li>
+                    <li>Su inclusión mejora significativamente la discriminación estadística del umbral</li>
+                </ul>
+            </section>
+
+            <!-- Slide 15: Desafíos en el trópico -->
+            <section data-background-color="#ffffff">
+                <h3>Desafíos en la aplicación de umbrales en el trópico</h3>
+                <div
+                    style="background: #ecf0f1; padding: 20px; border-radius: 15px; text-align: left; margin-top: 10px;">
+                    <ul>
+                        <li>Redes pluviométricas con baja densidad espacial y registros incompletos</li>
+                        <li>Inventarios de deslizamientos incompletos y con sesgo temporal y espacial</li>
+                        <li>Alta variabilidad climática del trópico dificulta la regionalización de umbrales</li>
+                        <li>Necesidad de actualización continua frente al cambio climático</li>
+                        <li>Integración con modelos de susceptibilidad y exposición para un SAT robusto</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Última slide -->
+            <section data-background-color="#ffffff">
+                <h1>¡Gracias!</h1>
+                <p>https://edieraristizabal.github.io/Presentaciones/LandAware2026_Medellin.html</p>
+                <br>
+                <p style="font-size: 0.8em; color: rgb(26, 37, 201);">evaristizabalg@unal.edu.co</p>
+            </section>
+
+        </div><!-- /.slides -->
+
+    </div><!-- /.reveal -->
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/search/search.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/menu/menu.js"></script>
+    <script src="plugin/math/math.js"></script>
+
+    <script>
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            center: true,
+            slideNumber: 'c/t',
+            hash: true,
+            math: {
+                config: 'TeX-AMS_HTML-full',
+                TeX: {
+                    Macros: {
+                        R: '\\mathbb{R}',
+                        set: ['\\left\\{#1 \\; ; \\; #2\\right\\}', 2]
+                    }
+                }
+            },
+            menu: {
+                side: 'left',
+                width: 'wide',
+                numbers: false,
+                titleSelector: 'h1, h2, h3',
+                useTextContentForMissingTitles: false,
+                hideMissingTitles: false,
+                markers: true,
+                custom: false,
+                themes: true,
+                themesPath: 'dist/theme/',
+                transitions: false,
+                openButton: true,
+                openSlideNumber: true,
+                keyboard: true,
+                sticky: false,
+                autoOpen: true,
+                delayInit: false,
+                openOnInit: false,
+                loadIcons: true
+            },
+
+            plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealNotes, RevealMenu, RevealMath]
+        });
+    </script>
+
+</body>
+
+</html>
